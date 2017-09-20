@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/12/14/simba.website/index.html">
 <meta property="og:site_name" content="Simba的博客">
 <meta property="og:description" content="这只是我自己在工作之余写的一个一些网站上常见的插件，然后我就厚颜无耻的以自己的名字命名了，求轻喷！！！放在博客上也不是想炫耀什么的，毕竟我还是一个技术渣，只是希望能给部分人一些借鉴和参考。">
-<meta property="og:updated_time" content="2016-04-26T03:11:56.000Z">
+<meta property="og:updated_time" content="2017-09-20T02:22:17.097Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="simba.website">
 <meta name="twitter:description" content="这只是我自己在工作之余写的一个一些网站上常见的插件，然后我就厚颜无耻的以自己的名字命名了，求轻喷！！！放在博客上也不是想炫耀什么的，毕竟我还是一个技术渣，只是希望能给部分人一些借鉴和参考。">
@@ -59,6 +59,8 @@
 		<nav class="header-menu">
 			<ul>
 			
+				<li><a href="/">主页</a></li>
+	        
 				<li><a href="/categories/前端记录">前端记录</a></li>
 	        
 				<li><a href="/categories/随心所记">随心所记</a></li>
@@ -119,6 +121,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -134,12 +138,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/categories/前端记录">前端记录</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/categories/随心所记">随心所记</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/前端记录">前端记录</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/categories/随心所记">随心所记</a></li>
 		        
 				</ul>
 			</nav>
@@ -177,8 +183,8 @@
         <p>这只是我自己在工作之余写的一个一些网站上常见的插件，然后我就厚颜无耻的以自己的名字命名了，求轻喷！！！<br>放在博客上也不是想炫耀什么的，毕竟我还是一个技术渣，只是希望能给部分人一些借鉴和参考。<br><a id="more"></a></p>
 <p>下面我就简单的介绍一下这个插件吧！233333</p>
 <p>线上demo戳这里  <a href="http://simba.langzu.cn.com/" target="_blank" rel="external">戳我，戳我</a><br>源码的话戳这里  <a href="https://github.com/simbaHuang/simba.website" target="_blank" rel="external">轻点！！</a></p>
-<h1 id="一、文件引入"><a href="#一、文件引入" class="headerlink" title="一、文件引入"></a>一、文件引入</h1><p>插件是基于jq来写的（毕竟我是一个jq狗），所以在引项目文件之前需引入jq文件，如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/jquery.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/simba.webSite.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
-<h1 id="二、插件介绍"><a href="#二、插件介绍" class="headerlink" title="二、插件介绍"></a>二、插件介绍</h1><h3 id="1、轮播"><a href="#1、轮播" class="headerlink" title="1、轮播"></a>1、轮播</h3><p>首先html结构如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"slider"</span> e-fun=<span class="string">"slider"</span>&gt;</div><div class="line">	&lt;a href=<span class="string">"javascript:"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/1.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></div><div class="line">	&lt;a href=<span class="string">"javascript:"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/2.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></div><div class="line">	&lt;a href=<span class="string">"javascript:"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/3.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></div><div class="line">	&lt;a href=<span class="string">"javascript:"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/4.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></div><div class="line">	&lt;a href=<span class="string">"javascript:"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/5.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="一、文件引入"><a href="#一、文件引入" class="headerlink" title="一、文件引入"></a>一、文件引入</h1><p>插件是基于jq来写的（毕竟我是一个jq狗），所以在引项目文件之前需引入jq文件，如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/jquery.js"</span>&gt;&lt;/script&gt;</div><div class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"js/simba.webSite.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="二、插件介绍"><a href="#二、插件介绍" class="headerlink" title="二、插件介绍"></a>二、插件介绍</h1><h3 id="1、轮播"><a href="#1、轮播" class="headerlink" title="1、轮播"></a>1、轮播</h3><p>首先html结构如下<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"slider"</span> e-fun=<span class="string">"slider"</span>&gt;</div><div class="line">	&lt;a href=<span class="string">"javascript:"</span>&gt;&lt;img src="./images/1.jpg" alt="" /&gt;&lt;/a&gt;</div><div class="line">	&lt;a href=<span class="string">"javascript:"</span>&gt;&lt;img src="./images/2.jpg" alt="" /&gt;&lt;/a&gt;</div><div class="line">	&lt;a href=<span class="string">"javascript:"</span>&gt;&lt;img src="./images/3.jpg" alt="" /&gt;&lt;/a&gt;</div><div class="line">	&lt;a href=<span class="string">"javascript:"</span>&gt;&lt;img src="./images/4.jpg" alt="" /&gt;&lt;/a&gt;</div><div class="line">	&lt;a href=<span class="string">"javascript:"</span>&gt;&lt;img src="./images/5.jpg" alt="" /&gt;&lt;/a&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
 <p>如你所看你只要设置<code>e-fun=&quot;slider&quot;</code> ps：所有的组件效果都是 <code>e-</code> 开头的指令</p>
 <p>当然你如果不想用指令，也可以直接用js初始化,效果是一样的<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".slider"</span>).slider();</div></pre></td></tr></table></figure></p>
 <p>下面是一些基本参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">imgW : <span class="number">0</span>, <span class="comment">//轮播图片的宽度</span></div><div class="line">imgH : <span class="number">0</span>, <span class="comment">//轮播图片的高度</span></div><div class="line">timeout : <span class="string">"3000"</span>, <span class="comment">//轮播间隔时间</span></div><div class="line">moveTime : <span class="number">500</span>, <span class="comment">//动画时间</span></div><div class="line">autoSlider : <span class="literal">true</span>, <span class="comment">//是否自动轮播</span></div><div class="line">moveStyle : <span class="string">"slide"</span>, <span class="comment">//动画效果  slide ：滑动， fade ：渐隐渐现</span></div><div class="line">addTag : <span class="literal">true</span>,	<span class="comment">//是否创建圆点标记</span></div><div class="line">tagSize : <span class="number">12</span>, <span class="comment">//圆点标记的大小</span></div><div class="line">tagDefaultBg : <span class="string">"#fff"</span>, <span class="comment">//圆点标记的默认背景</span></div><div class="line">tagActiveBg : <span class="string">"#5638d8"</span>, <span class="comment">// 圆点标记选中背景</span></div><div class="line">btnShow : <span class="literal">true</span>, <span class="comment">//是否显示左右按钮</span></div><div class="line">btnW : <span class="number">30</span>, <span class="comment">//按钮的宽度</span></div><div class="line">btnH : <span class="number">60</span>, <span class="comment">//按钮的高度</span></div><div class="line">btnBg : <span class="string">"rgba(255,255,255,.6)"</span> <span class="comment">//左右按钮的背景</span></div></pre></td></tr></table></figure></p>
@@ -187,13 +193,13 @@
 <h3 id="3、Tab切换"><a href="#3、Tab切换" class="headerlink" title="3、Tab切换"></a>3、Tab切换</h3><p>html<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"tab"</span> e-fun=<span class="string">"tab"</span>&gt;</div><div class="line">	&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"clear"</span>&gt;</div><div class="line">		&lt;a e-tab-<span class="keyword">for</span>=<span class="string">"nav0"</span>&gt;a&lt;<span class="regexp">/a&gt;</span></div><div class="line"><span class="regexp">		&lt;a e-tab-for="nav1"&gt;b&lt;/</span>a&gt;</div><div class="line">		&lt;a e-tab-<span class="keyword">for</span>=<span class="string">"nav2"</span>&gt;c&lt;<span class="regexp">/a&gt;</span></div><div class="line"><span class="regexp">	&lt;/</span>div&gt;</div><div class="line">	&lt;div&gt;</div><div class="line">		&lt;p e-tab-nav=<span class="string">"nav0"</span>&gt;a&lt;<span class="regexp">/p&gt;</span></div><div class="line"><span class="regexp">		&lt;p e-tab-nav="nav1"&gt;b&lt;/</span>p&gt;</div><div class="line">		&lt;p e-tab-nav=<span class="string">"nav2"</span>&gt;c&lt;<span class="regexp">/p&gt;</span></div><div class="line"><span class="regexp">	&lt;/</span>div&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
 <p>js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#tab"</span>).tab();</div></pre></td></tr></table></figure></p>
 <p>参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">num : <span class="number">0</span>, <span class="comment">//默认显示  </span></div><div class="line">ent : <span class="string">"click"</span>, <span class="comment">//默认响应事件   click/mouseover/touchend</span></div><div class="line">choo : <span class="string">"choo"</span> <span class="comment">//选中的类名</span></div></pre></td></tr></table></figure></p>
-<h3 id="4、div模拟下拉"><a href="#4、div模拟下拉" class="headerlink" title="4、div模拟下拉"></a>4、div模拟下拉</h3><p>html<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"drBox"</span> e-fun=<span class="string">"dropBox"</span>&gt;</div><div class="line">	&lt;input readonly type=<span class="string">"text"</span> /&gt;</div><div class="line">	&lt;i <span class="class"><span class="keyword">class</span></span>=<span class="string">"fa fa-chevron-down"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></div><div class="line">	&lt;ul&gt;</div><div class="line">		&lt;li&gt;选项<span class="number">1</span>&lt;<span class="regexp">/li&gt;</span></div><div class="line"><span class="regexp">		&lt;li&gt;选项2&lt;/</span>li&gt;</div><div class="line">		&lt;li&gt;选项<span class="number">3</span>&lt;<span class="regexp">/li&gt;</span></div><div class="line"><span class="regexp">	&lt;/u</span>l&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="4、div模拟下拉"><a href="#4、div模拟下拉" class="headerlink" title="4、div模拟下拉"></a>4、div模拟下拉</h3><p>html<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"drBox"</span> e-fun=<span class="string">"dropBox"</span>&gt;</div><div class="line">	&lt;input readonly type=<span class="string">"text"</span> /&gt;</div><div class="line">	&lt;i <span class="class"><span class="keyword">class</span></span>=<span class="string">"fa fa-chevron-down"</span>&gt;&lt;/i&gt;</div><div class="line">	&lt;ul&gt;</div><div class="line">		&lt;li&gt;选项<span class="number">1</span>&lt;<span class="regexp">/li&gt;</span></div><div class="line"><span class="regexp">		&lt;li&gt;选项2&lt;/</span>li&gt;</div><div class="line">		&lt;li&gt;选项<span class="number">3</span>&lt;<span class="regexp">/li&gt;</span></div><div class="line"><span class="regexp">	&lt;/u</span>l&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
 <p>js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#drBox"</span>).dropBox();</div></pre></td></tr></table></figure></p>
 <p>参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">tapType : <span class="string">"click"</span>, <span class="comment">//默认的点击方式---click,touchend</span></div><div class="line">n : <span class="number">0</span>, <span class="comment">//默认value初始值  </span></div><div class="line">ntype : <span class="string">"name"</span>, <span class="comment">//提交的input值得value值    </span></div><div class="line">speed : <span class="number">100</span>, <span class="comment">//下拉框下拉或收起的速度</span></div><div class="line">li_lineH : <span class="number">30</span>, <span class="comment">//下拉项行高</span></div><div class="line">ul_bg : <span class="string">"#fff"</span> <span class="comment">//下拉项背景</span></div></pre></td></tr></table></figure></p>
-<h3 id="5、图片式多选框"><a href="#5、图片式多选框" class="headerlink" title="5、图片式多选框"></a>5、图片式多选框</h3><p>html<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"check"</span> e-fun=<span class="string">"check"</span>&gt;</div><div class="line">	&lt;ul&gt;</div><div class="line">		&lt;li&gt;<span class="xml"><span class="tag">&lt;<span class="name">i</span> <span class="attr">e-check-all</span> <span class="attr">e-check</span>=<span class="string">0</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/e-check.png"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span>全选<span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">		&lt;li&gt;</div><div class="line">			&lt;i e-check-one e-check=<span class="number">0</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/e-check.png"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span>多选1<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></div><div class="line">			&lt;i e-check-one e-check=<span class="number">0</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/e-check.png"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span>多选2<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></div><div class="line">			&lt;i e-check-one e-check=<span class="number">0</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/e-check.png"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span>多选3<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></div><div class="line">			&lt;i e-check-one e-check=<span class="number">0</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/e-check.png"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span>多选4<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></div><div class="line">		&lt;<span class="regexp">/li&gt;</span></div><div class="line"><span class="regexp">	&lt;/u</span>l&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="5、图片式多选框"><a href="#5、图片式多选框" class="headerlink" title="5、图片式多选框"></a>5、图片式多选框</h3><p>html<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"check"</span> e-fun=<span class="string">"check"</span>&gt;</div><div class="line">	&lt;ul&gt;</div><div class="line">		&lt;li&gt;&lt;i e-check-all e-check=0&gt;&lt;img src="./images/e-check.png" alt="" /&gt;全选&lt;/i&gt;&lt;/li&gt;</div><div class="line">		&lt;li&gt;</div><div class="line">			&lt;i e-check-one e-check=<span class="number">0</span>&gt;&lt;img src="./images/e-check.png" alt="" /&gt;多选1&lt;/i&gt;</div><div class="line">			&lt;i e-check-one e-check=<span class="number">0</span>&gt;&lt;img src="./images/e-check.png" alt="" /&gt;多选2&lt;/i&gt;</div><div class="line">			&lt;i e-check-one e-check=<span class="number">0</span>&gt;&lt;img src="./images/e-check.png" alt="" /&gt;多选3&lt;/i&gt;</div><div class="line">			&lt;i e-check-one e-check=<span class="number">0</span>&gt;&lt;img src="./images/e-check.png" alt="" /&gt;多选4&lt;/i&gt;</div><div class="line">		&lt;<span class="regexp">/li&gt;</span></div><div class="line"><span class="regexp">	&lt;/u</span>l&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
 <p>js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#check"</span>).check();</div></pre></td></tr></table></figure></p>
 <p>参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tapType : <span class="string">"click"</span>, <span class="comment">//默认的点击方式---click,touchend</span></div><div class="line">checkSrc : <span class="string">"./images/e-check.png"</span>, <span class="comment">//显示的默认图片</span></div><div class="line">checkedSrc : <span class="string">"./images/e-checked.png"</span> <span class="comment">//选中后显示的图片</span></div></pre></td></tr></table></figure></p>
-<h3 id="6、图片式单选框"><a href="#6、图片式单选框" class="headerlink" title="6、图片式单选框"></a>6、图片式单选框</h3><p>html<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"radio"</span> e-fun=<span class="string">"radio"</span>&gt;</div><div class="line">	&lt;ul&gt;</div><div class="line">		&lt;li&gt;</div><div class="line">			&lt;i e-radio e-check=<span class="number">1</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/e-radioed.png"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span>单选1<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></div><div class="line">			&lt;i e-radio e-check=<span class="number">0</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/e-radio.png"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span>单选2<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></div><div class="line">			&lt;i e-radio e-check=<span class="number">0</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/e-radio.png"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span>单选3<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></div><div class="line">			&lt;i e-radio e-check=<span class="number">0</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"./images/e-radio.png"</span> <span class="attr">alt</span>=<span class="string">""</span> /&gt;</span>单选4<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span></div><div class="line">		&lt;<span class="regexp">/li&gt;</span></div><div class="line"><span class="regexp">	&lt;/u</span>l&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="6、图片式单选框"><a href="#6、图片式单选框" class="headerlink" title="6、图片式单选框"></a>6、图片式单选框</h3><p>html<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"radio"</span> e-fun=<span class="string">"radio"</span>&gt;</div><div class="line">	&lt;ul&gt;</div><div class="line">		&lt;li&gt;</div><div class="line">			&lt;i e-radio e-check=<span class="number">1</span>&gt;&lt;img src="./images/e-radioed.png" alt="" /&gt;单选1&lt;/i&gt;</div><div class="line">			&lt;i e-radio e-check=<span class="number">0</span>&gt;&lt;img src="./images/e-radio.png" alt="" /&gt;单选2&lt;/i&gt;</div><div class="line">			&lt;i e-radio e-check=<span class="number">0</span>&gt;&lt;img src="./images/e-radio.png" alt="" /&gt;单选3&lt;/i&gt;</div><div class="line">			&lt;i e-radio e-check=<span class="number">0</span>&gt;&lt;img src="./images/e-radio.png" alt="" /&gt;单选4&lt;/i&gt;</div><div class="line">		&lt;<span class="regexp">/li&gt;</span></div><div class="line"><span class="regexp">	&lt;/u</span>l&gt;</div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
 <p>js<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#radio"</span>).radio();</div></pre></td></tr></table></figure></p>
 <p>参数<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tapType : <span class="string">"click"</span>, <span class="comment">//默认的点击方式---click,touchend</span></div><div class="line">radiusSrc : <span class="string">"./images/e-radio.png"</span>, <span class="comment">//显示的默认图片</span></div><div class="line">radiusedSrc : <span class="string">"./images/e-radioed.png"</span> <span class="comment">//选中后显示的图片</span></div></pre></td></tr></table></figure></p>
 <h3 id="7、类锚点"><a href="#7、类锚点" class="headerlink" title="7、类锚点"></a>7、类锚点</h3><p>html<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a id=<span class="string">"pop-a"</span> href=<span class="string">"javascript:"</span> e-fun=<span class="string">"anchor"</span>&gt;点我就能回到顶部了&lt;<span class="regexp">/a&gt;</span></div></pre></td></tr></table></figure></p>
@@ -206,27 +212,6 @@
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -253,7 +238,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/前段记录//" class="article-tag-list-link color5">前段记录</a>
+        			<a href="/categories/前端记录//" class="article-tag-list-link color5">前端记录</a>
         		</li>
       		
 		</ul>
@@ -361,17 +346,6 @@
   
   
   
-  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-<script>
-  var cloudTieConfig = {
-    url: "http://yoursite.com/2015/12/14/simba.website/", 
-    sourceId: "simba.website",
-    productKey: "true",
-    target: "cloud-tie-wrapper"
-  };
-</script>
-<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
-  
 
   
 
@@ -474,11 +448,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">人和事</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">总结</a>
+                <a href="javascript:void(0)" class="js-tag color1">Handlebars</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,7 +460,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Handlebars</a>
+                <a href="javascript:void(0)" class="js-tag color4">人和事</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -498,19 +472,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">2016</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iScroll</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">装逼</a>
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,11 +488,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iScroll</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">日历</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">DateTimePicker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">装逼</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">年终总结</a>
               </li>
             
             <div class="clearfix"></div>
@@ -597,7 +575,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">Simba &lt;br&gt;职业前端，兼职奶爸&lt;br&gt;&lt;br&gt;游戏、电影、篮球&lt;br/&gt;只想赚点奶粉钱&lt;br/&gt;&lt;br/&gt;</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Simba &lt;br&gt;职业前端，兼职奶爸&lt;br&gt;&lt;br&gt;游戏、电影、篮球、音乐&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;</div>
   	  	
     	</section>
     
