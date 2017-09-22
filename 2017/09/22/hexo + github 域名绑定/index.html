@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: hexo | Simba的博客</title>
+  <title>hexo + github 域名绑定 | Simba的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="兼职奶爸">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Simba的博客">
-<meta property="og:url" content="http://yoursite.com/tags/hexo/page/2/index.html">
+  <meta name="description" content="发现又很久没有更新博客了，年后这段时间实在是太忙了。周而复始的996让我无暇他顾，好在终于可以歇一段时间了！正好买了一个域名，就和github关联起来了，查了不少资料，踩坑不少。特此记录一下。">
+<meta name="keywords" content="hexo,github">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo + github 域名绑定">
+<meta property="og:url" content="http://yoursite.com/2017/09/22/hexo + github 域名绑定/index.html">
 <meta property="og:site_name" content="Simba的博客">
-<meta property="og:description" content="兼职奶爸">
+<meta property="og:description" content="发现又很久没有更新博客了，年后这段时间实在是太忙了。周而复始的996让我无暇他顾，好在终于可以歇一段时间了！正好买了一个域名，就和github关联起来了，查了不少资料，踩坑不少。特此记录一下。">
+<meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/blog-1.jpeg">
+<meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/blog-2.png">
+<meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/blog-3.png">
+<meta property="og:updated_time" content="2017-09-22T11:22:45.185Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Simba的博客">
-<meta name="twitter:description" content="兼职奶爸">
+<meta name="twitter:title" content="hexo + github 域名绑定">
+<meta name="twitter:description" content="发现又很久没有更新博客了，年后这段时间实在是太忙了。周而复始的996让我无暇他顾，好在终于可以歇一段时间了！正好买了一个域名，就和github关联起来了，查了不少资料，踩坑不少。特此记录一下。">
+<meta name="twitter:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/blog-1.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="Simba的博客" type="application/atom+xml">
   
@@ -159,36 +164,46 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-hexo + github 域名绑定" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      hexo + github 域名绑定
+    </h1>
+  
+
+        
+        <a href="/2017/09/22/hexo + github 域名绑定/" class="archive-article-date">
+  	<time datetime="2017-09-22T08:09:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-22</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://7xp0vg.com1.z0.glb.clouddn.com/blog-1.jpeg" alt=""></p>
+<p>发现又很久没有更新博客了，年后这段时间实在是太忙了。周而复始的996让我无暇他顾，好在终于可以歇一段时间了！<br>正好买了一个域名，就和github关联起来了，查了不少资料，踩坑不少。特此记录一下。</p>
+<a id="more"></a>
+<h1 id="注册域名"><a href="#注册域名" class="headerlink" title="注册域名"></a>注册域名</h1><p>首先我们要绑定自己的域名的话，首先你得要有一个属于自己的域名。你可以直接在阿里云上购买，买完之后可以在 <code>控制台&gt;域名与网站（万网）&gt;域名</code> 里看到你买的域名了<br><img src="http://7xp0vg.com1.z0.glb.clouddn.com/blog-2.png" alt=""></p>
+<p>域名一定要实名认证！！！这是重点。</p>
+<h1 id="解析、配置"><a href="#解析、配置" class="headerlink" title="解析、配置"></a>解析、配置</h1><p>ok，之后我们接着来解析网站，两个记录类型为 <code>A</code> 的IP地址，用的是github提供的 <code>192.30.252.153</code> <code>192.30.252.154</code>，接着添加一个记录类型为 <code>CNAME</code> 的，记录值就是你github的名称加上<code>github.io</code>的后缀，比如我的是 <code>simbaHuang.github.io</code>。弄好后就是这样：<br><img src="http://7xp0vg.com1.z0.glb.clouddn.com/blog-3.png" alt=""></p>
+<p>ps: DNS的话可以不用更换，直接用万网的就可以，可以不用去修改。</p>
+<p>接下来就需要到github上，进入你的博客仓库 <code>Settings &gt; Options &gt; GitHub Pages &gt; Custom domain</code>里面输入你的域名地址，千万不要加域名前缀哦。比如我的域名是 <code>www.goodluckzhou.com</code>，那我这里填的就是 <code>goodluckzhou.com</code>，点击保存。</p>
+<p>最后再进入本地的博客文件夹 <code>blog &gt; source</code> 下面新建一个名称为 <code>CNAME</code> 的文件，里面的内容也是输入你的不带前缀的域名。</p>
+<p>注意： 这个文件名必须大写，而且没有文件名后缀。</p>
+<h1 id="装逼"><a href="#装逼" class="headerlink" title="装逼"></a>装逼</h1><p>这些都弄完之后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo -g</div><div class="line">hexo -d</div></pre></td></tr></table></figure></p>
+<p>提交一下，就能看到你的博客已经可以从新域名进入了！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/10/hexo三体验/" class="archive-article-date">
-  	<time datetime="2015-12-10T09:06:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/10/hexo三体验/">hexo三体验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -196,135 +211,124 @@
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/前端记录//" class="article-tag-list-link color5">前端记录</a>
+        			<a href="/categories/随心所记//" class="article-tag-list-link color5">随心所记</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/09/22/hexo + github 域名绑定/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/10/hexo二体验/" class="archive-article-date">
-  	<time datetime="2015-12-10T07:38:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-10</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2017/01/05/记在2017年初/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">记在2017年初</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/10/hexo二体验/">hexo二体验</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端记录//" class="article-tag-list-link color5">前端记录</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/12/09/hexo初体验/" class="archive-article-date">
-  	<time datetime="2015-12-09T07:38:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-12-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/12/09/hexo初体验/">hexo初体验</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/前端记录//" class="article-tag-list-link color5">前端记录</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/hexo/">&laquo; Prev</a><a class="page-number" href="/tags/hexo/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -348,9 +352,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
