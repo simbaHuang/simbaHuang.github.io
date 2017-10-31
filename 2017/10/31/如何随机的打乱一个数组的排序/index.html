@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>类似微信聊天发表情web版 | Simba的博客</title>
+  <title>如何随机的打乱一个数组的排序 | Simba的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天的时间充裕，再写一篇吧。效果就是聊天发表情web版，由于需求的变动，我就弄了一个简单版的。原理就是把表情转换成字符串，传给后台。读取的时候再由字符串转换成图片形式。">
-<meta name="keywords" content="微信,发表情">
+  <meta name="description" content="前几天突然偶遇一问题：实现一个打乱数组排序的方法。当时一下子没有想到很好的解决方案，不过回头考虑了一下，还是弄出了一个解决方案。">
+<meta name="keywords" content="hexo,github,js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="类似微信聊天发表情web版">
-<meta property="og:url" content="http://yoursite.com/2016/03/08/类似微信聊天发表情web版/index.html">
+<meta property="og:title" content="如何随机的打乱一个数组的排序">
+<meta property="og:url" content="http://yoursite.com/2017/10/31/如何随机的打乱一个数组的排序/index.html">
 <meta property="og:site_name" content="Simba的博客">
-<meta property="og:description" content="今天的时间充裕，再写一篇吧。效果就是聊天发表情web版，由于需求的变动，我就弄了一个简单版的。原理就是把表情转换成字符串，传给后台。读取的时候再由字符串转换成图片形式。">
-<meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/liaotian.gif">
-<meta property="og:updated_time" content="2016-04-26T03:11:56.000Z">
+<meta property="og:description" content="前几天突然偶遇一问题：实现一个打乱数组排序的方法。当时一下子没有想到很好的解决方案，不过回头考虑了一下，还是弄出了一个解决方案。">
+<meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/20171031-1.png">
+<meta property="og:updated_time" content="2017-10-31T07:16:51.874Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="类似微信聊天发表情web版">
-<meta name="twitter:description" content="今天的时间充裕，再写一篇吧。效果就是聊天发表情web版，由于需求的变动，我就弄了一个简单版的。原理就是把表情转换成字符串，传给后台。读取的时候再由字符串转换成图片形式。">
-<meta name="twitter:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/liaotian.gif">
+<meta name="twitter:title" content="如何随机的打乱一个数组的排序">
+<meta name="twitter:description" content="前几天突然偶遇一问题：实现一个打乱数组排序的方法。当时一下子没有想到很好的解决方案，不过回头考虑了一下，还是弄出了一个解决方案。">
+<meta name="twitter:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/20171031-1.png">
   
     <link rel="alternative" href="/atom.xml" title="Simba的博客" type="application/atom+xml">
   
@@ -162,34 +162,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-类似微信聊天发表情web版" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-如何随机的打乱一个数组的排序" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      类似微信聊天发表情web版
+      如何随机的打乱一个数组的排序
     </h1>
   
 
         
-        <a href="/2016/03/08/类似微信聊天发表情web版/" class="archive-article-date">
-  	<time datetime="2016-03-08T09:06:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-03-08</time>
+        <a href="/2017/10/31/如何随机的打乱一个数组的排序/" class="archive-article-date">
+  	<time datetime="2017-10-31T03:46:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>今天的时间充裕，再写一篇吧。效果就是聊天发表情web版，由于需求的变动，我就弄了一个简单版的。原理就是把表情转换成字符串，传给后台。读取的时候再由字符串转换成图片形式。<br><a id="more"></a></p>
-<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>测试效果如下<br><img src="http://7xp0vg.com1.z0.glb.clouddn.com/liaotian.gif" alt=""></p>
-<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>如上所示的效果，我们就会发现我们唯一的一个问题就是图片和字符串之间的转换。<br>让我们一步一步的来，首先我们先要有一套表情，然后我们就需要给每个表情都设置一个编号放在一个json文件里,部分如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"face"</span> : [</div><div class="line">    &#123;</div><div class="line">      <span class="string">"number"</span> : <span class="number">0</span>,</div><div class="line">      <span class="string">"name"</span> : <span class="string">"微笑"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"number"</span> : <span class="number">1</span>,</div><div class="line">      <span class="string">"name"</span> : <span class="string">"撇嘴"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"number"</span> : <span class="number">2</span>,</div><div class="line">      <span class="string">"name"</span> : <span class="string">"色"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"number"</span> : <span class="number">3</span>,</div><div class="line">      <span class="string">"name"</span> : <span class="string">"发呆"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"number"</span> : <span class="number">4</span>,</div><div class="line">      <span class="string">"name"</span> : <span class="string">"得意"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"number"</span> : <span class="number">5</span>,</div><div class="line">      <span class="string">"name"</span> : <span class="string">"流泪"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"number"</span> : <span class="number">6</span>,</div><div class="line">      <span class="string">"name"</span> : <span class="string">"害羞"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"number"</span> : <span class="number">7</span>,</div><div class="line">      <span class="string">"name"</span> : <span class="string">"闭嘴"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"number"</span> : <span class="number">8</span>,</div><div class="line">      <span class="string">"name"</span> : <span class="string">"睡"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"number"</span> : <span class="number">9</span>,</div><div class="line">      <span class="string">"name"</span> : <span class="string">"大哭"</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">      <span class="string">"number"</span> : <span class="number">10</span>,</div><div class="line">      <span class="string">"name"</span> : <span class="string">"尴尬"</span></div><div class="line">    &#125;,</div><div class="line">    ......略</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>OK，之后我们就需要在当我们点击 <code>表情</code> 那个按钮的时候加载表情，我们在加载的时候会把每个表情所对应的意思放入html中，赋给一个自定义的属性，代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//表情加载并初始化</span></div><div class="line">faceLoad : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> faceWarp = $(<span class="string">"#faceSlider"</span>),<span class="comment">//表情的容器</span></div><div class="line">        liPage = <span class="string">''</span>,</div><div class="line">        faceTem = <span class="string">""</span>;</div><div class="line">    <span class="comment">//导入表情</span></div><div class="line">    $.post(<span class="string">"../../resource/inc/face.json"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">        data = data.face;</div><div class="line">        <span class="built_in">module</span>.data.faceData =  data;</div><div class="line">        liPage = <span class="built_in">Math</span>.ceil(data.length/<span class="number">24</span>);<span class="comment">//分页</span></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; liPage; i ++)&#123;</div><div class="line">            faceTem += <span class="string">'&lt;div class="clear facePage"&gt;'</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="number">24</span>; j ++)&#123;</div><div class="line">                <span class="keyword">var</span> num = <span class="number">24</span>*i + j;</div><div class="line">                <span class="keyword">if</span>(data[num])&#123;</div><div class="line">                    <span class="keyword">if</span>(j == <span class="number">23</span>)&#123;</div><div class="line">                        faceTem += <span class="string">'&lt;a title="删除"&gt;'</span>;</div><div class="line">                        faceTem += <span class="string">'&lt;img src="../../resource/images/noticeFace/face (91).png"&gt;'</span>;</div><div class="line">                        faceTem += <span class="string">'&lt;/a&gt;'</span>;</div><div class="line">                    &#125;<span class="keyword">else</span>&#123;</div><div class="line">                        faceTem += <span class="string">'&lt;a title='</span> + data[num].name + <span class="string">'&gt;'</span>;</div><div class="line">                        faceTem += <span class="string">'&lt;img src="../../resource/images/noticeFace/face ('</span> + (num + <span class="number">1</span>) + <span class="string">').png"&gt;'</span>;</div><div class="line">                        faceTem += <span class="string">'&lt;/a&gt;'</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;;</div><div class="line">            faceTem += <span class="string">'&lt;/div&gt;'</span>;</div><div class="line">        &#125;</div><div class="line">        faceWarp.append(faceTem);</div><div class="line"></div><div class="line">        <span class="comment">//样式初始化</span></div><div class="line">        faceWarp.css(&#123;</div><div class="line">            <span class="string">"width"</span> : win_w*liPage + <span class="string">'px'</span></div><div class="line">        &#125;);</div><div class="line">        faceWarp.find(<span class="string">".facePage"</span>).css(&#123;</div><div class="line">            <span class="string">"width"</span> : win_w + <span class="string">'px'</span></div><div class="line">        &#125;);</div><div class="line">        </div><div class="line">        <span class="comment">//初始化iscroll</span></div><div class="line">        <span class="built_in">module</span>.data.face = <span class="keyword">new</span> IScroll(<span class="string">'#faceBox'</span>, &#123;</div><div class="line">            scrollX: <span class="literal">true</span>,</div><div class="line">            scrollY: <span class="literal">false</span>,</div><div class="line">            momentum: <span class="literal">false</span>,</div><div class="line">            snap: <span class="literal">true</span>,</div><div class="line">            snapSpeed: <span class="number">400</span>,</div><div class="line">            keyBindings: <span class="literal">true</span>,</div><div class="line">            resizeScrollbars: <span class="literal">true</span>,</div><div class="line">            tap: <span class="literal">true</span>,</div><div class="line">            indicators: &#123;</div><div class="line">                el: <span class="built_in">document</span>.getElementById(<span class="string">'indicator'</span>),</div><div class="line">                resize: <span class="literal">false</span></div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        <span class="comment">//选择表情</span></div><div class="line">        faceWarp.find(<span class="string">"a"</span>).on(<span class="string">"tap"</span>,<span class="built_in">module</span>.func.faceChoose);</div><div class="line">        <span class="comment">//发送表情</span></div><div class="line">        $(<span class="string">"#feceSend"</span>).on(<span class="string">"touchend"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">            $(<span class="string">"#sendBtn"</span>).trigger(<span class="string">"touchend"</span>);</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">    &#125;, <span class="string">'json'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>之后就来到了关键的发送表情了：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//发送表情</span></div><div class="line">faceChoose : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> ths = $(<span class="keyword">this</span>),</div><div class="line">        thsTitle = ths.attr(<span class="string">"title"</span>),</div><div class="line">        sendIpt = $(<span class="string">"#chatIpt"</span>),</div><div class="line">        sendVal = sendIpt.val();</div><div class="line">    <span class="keyword">if</span>(thsTitle == <span class="string">"删除"</span> &amp;&amp; sendVal != <span class="string">""</span>)&#123;</div><div class="line">        <span class="comment">//正则拆分  ex: "正则[微笑]aa[撇嘴]" 》》》》 ["正","则","[微笑]","a","a","[撇嘴]"]</span></div><div class="line">        <span class="keyword">var</span> sendValArray = sendVal.match(<span class="regexp">/\[[^\]]+\]|./g</span>);</div><div class="line">        sendValArray.splice(sendValArray.length<span class="number">-1</span>,<span class="number">1</span>);</div><div class="line">        sendVal = <span class="string">""</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> sendValArray)&#123;</div><div class="line">            sendVal += sendValArray[i];</div><div class="line">        &#125;;</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(thsTitle != <span class="string">"删除"</span>)&#123;                    </div><div class="line">        sendVal += <span class="string">"["</span> + thsTitle + <span class="string">"]"</span>;</div><div class="line">    &#125;</div><div class="line">    sendIpt.val(sendVal);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>这里的关键就是获取所选表情的中文意思用 <code>[]</code> 包含起来，组成一个 <code>[中文意思]</code> 的字符串放入输入框中，直接传给后台。反之后台获取也是同样的道理，我们只是解析字符串。  </p>
-<p>基本上也就这样了，代码只是截取了一部分。</p>
-<p>PS：以上只是我的个人代码，若有错误请指正。欢迎留言！</p>
+        <p>前几天突然偶遇一问题：<code>实现一个打乱数组排序的方法</code>。当时一下子没有想到很好的解决方案，不过回头考虑了一下，还是弄出了一个解决方案。<br><a id="more"></a></p>
+<h1 id="我的方案"><a href="#我的方案" class="headerlink" title="我的方案"></a>我的方案</h1><p>首先要打乱排序，我第一个想到的就是随机数，然后就是循环。<br>ok，按照这个思路我写了一个方法，代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">disorganizeArray</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">Object</span>.prototype.toString.call(arr) !== <span class="string">'[object Array]'</span>)&#123; <span class="keyword">return</span> &#125;</div><div class="line">    <span class="keyword">var</span> _temArr = arr.concat(),</div><div class="line">        _resArr = [];</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>, len = arr.length; j &lt; len; j ++)&#123;</div><div class="line">        <span class="keyword">var</span> _temLen = _temArr.length,</div><div class="line">            _index = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*_temLen);</div><div class="line"></div><div class="line">        _resArr[j] = _temArr[_index];</div><div class="line">        _temArr.splice(_index, <span class="number">1</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _resArr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>测试了一下还是可以实现这个需求的<br><img src="http://7xp0vg.com1.z0.glb.clouddn.com/20171031-1.png" alt=""></p>
+<h1 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h1><p>然后又在网上查了下，发现一个更优的方法，可以直接用<code>sort()</code>实现。<br>具体代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">disorganizeArray</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">Object</span>.prototype.toString.call(arr) !== <span class="string">'[object Array]'</span>)&#123; <span class="keyword">return</span> &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.random() &gt; <span class="number">0.5</span> ? <span class="number">1</span> : <span class="number">-1</span>;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>sort()</code>如果有比较函数的话，就会根据比较函数的返回值来做排序，具体如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">如果想按照其他标准进行排序，就需要提供比较函数，该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数 a 和 b，其返回值如下：</div><div class="line"></div><div class="line">若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值。</div><div class="line">若 a 等于 b，则返回 0。</div><div class="line">若 a 大于 b，则返回一个大于 0 的值。</div></pre></td></tr></table></figure></p>
+<p>#总结<br>敲代码就像是一场爱情，随时都能给你惊喜，在次记录这美好的时刻！<br>ps：如有其他好的方法可以邮箱我哟！！！</p>
 
       
 
@@ -203,11 +201,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">微信</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">发表情</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -274,7 +276,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2016/03/08/类似微信聊天发表情web版/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/10/31/如何随机的打乱一个数组的排序/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -288,18 +290,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/04/26/如何在换电脑的情况下继续装逼发博客/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          如何在换电脑的情况下继续装逼发博客！
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/08/日历选择周/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">日历选择周</div>
+    <a href="/2017/09/22/hexo + github 域名绑定/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">hexo + github 域名绑定</div>
       <i class="icon-circle-right"></i>
     </a>
   
