@@ -17,7 +17,7 @@
 <meta property="og:description" content="前几天突然偶遇一问题：实现一个打乱数组排序的方法。当时一下子没有想到很好的解决方案，不过回头考虑了一下，还是弄出了一个解决方案。">
 <meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/20171031-2.png">
 <meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/20171031-1.png">
-<meta property="og:updated_time" content="2017-10-31T07:22:26.748Z">
+<meta property="og:updated_time" content="2017-10-31T07:23:14.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何随机的打乱一个数组的排序">
 <meta name="twitter:description" content="前几天突然偶遇一问题：实现一个打乱数组排序的方法。当时一下子没有想到很好的解决方案，不过回头考虑了一下，还是弄出了一个解决方案。">
@@ -188,7 +188,7 @@
 <p>测试了一下还是可以实现这个需求的<br><img src="http://7xp0vg.com1.z0.glb.clouddn.com/20171031-1.png" alt=""></p>
 <h1 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h1><p>然后又在网上查了下，发现一个更优的方法，可以直接用<code>sort()</code>实现。<br>具体代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">disorganizeArray</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">Object</span>.prototype.toString.call(arr) !== <span class="string">'[object Array]'</span>)&#123; <span class="keyword">return</span> &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.random() &gt; <span class="number">0.5</span> ? <span class="number">1</span> : <span class="number">-1</span>;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><code>sort()</code>如果有比较函数的话，就会根据比较函数的返回值来做排序，具体如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">如果想按照其他标准进行排序，就需要提供比较函数，该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数 a 和 b，其返回值如下：</div><div class="line"></div><div class="line">若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值。</div><div class="line">若 a 等于 b，则返回 0。</div><div class="line">若 a 大于 b，则返回一个大于 0 的值。</div></pre></td></tr></table></figure></p>
-<p>#总结<br>敲代码就像是一场爱情，随时都能给你惊喜，在次记录这美好的时刻！<br>ps：如有其他好的方法可以邮箱我哟！！！</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>敲代码就像是一场爱情，随时都能给你惊喜，在次记录这美好的时刻！<br>ps：如有其他好的方法可以邮箱我哟！！！</p>
 
       
 
@@ -431,15 +431,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Handlebars</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">css3</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Handlebars</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -455,11 +455,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
+                <a href="javascript:void(0)" class="js-tag color5">2016</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">2016</a>
+                <a href="javascript:void(0)" class="js-tag color3">装逼</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -467,7 +471,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">装逼</a>
+                <a href="javascript:void(0)" class="js-tag color3">日历</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">DateTimePicker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,14 +488,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">年终总结</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">日历</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">DateTimePicker</a>
               </li>
             
             <div class="clearfix"></div>
