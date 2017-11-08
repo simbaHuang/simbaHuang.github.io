@@ -8,20 +8,19 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>如何随机的打乱一个数组的排序 | Simba的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前几天突然偶遇一问题：实现一个打乱数组排序的方法。当时一下子没有想到很好的解决方案，不过回头考虑了一下，还是弄出了一个解决方案。">
+  <meta name="description" content="前几天偶遇一问题：如何随机的打乱一个数组的排序。当时一下子没有想到很好的解决方案，不过回头考虑了一下，还是弄出了一个解决方案。">
 <meta name="keywords" content="hexo,github,js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何随机的打乱一个数组的排序">
 <meta property="og:url" content="http://yoursite.com/2017/10/31/如何随机的打乱一个数组的排序/index.html">
 <meta property="og:site_name" content="Simba的博客">
-<meta property="og:description" content="前几天突然偶遇一问题：实现一个打乱数组排序的方法。当时一下子没有想到很好的解决方案，不过回头考虑了一下，还是弄出了一个解决方案。">
-<meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/20171031-2.png">
+<meta property="og:description" content="前几天偶遇一问题：如何随机的打乱一个数组的排序。当时一下子没有想到很好的解决方案，不过回头考虑了一下，还是弄出了一个解决方案。">
 <meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/20171031-1.png">
-<meta property="og:updated_time" content="2017-10-31T07:27:43.469Z">
+<meta property="og:updated_time" content="2017-11-08T02:10:46.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何随机的打乱一个数组的排序">
-<meta name="twitter:description" content="前几天突然偶遇一问题：实现一个打乱数组排序的方法。当时一下子没有想到很好的解决方案，不过回头考虑了一下，还是弄出了一个解决方案。">
-<meta name="twitter:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/20171031-2.png">
+<meta name="twitter:description" content="前几天偶遇一问题：如何随机的打乱一个数组的排序。当时一下子没有想到很好的解决方案，不过回头考虑了一下，还是弄出了一个解决方案。">
+<meta name="twitter:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/20171031-1.png">
   
     <link rel="alternative" href="/atom.xml" title="Simba的博客" type="application/atom+xml">
   
@@ -183,7 +182,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://7xp0vg.com1.z0.glb.clouddn.com/20171031-2.png" width="525" height="350"><br>前几天突然偶遇一问题：<code>实现一个打乱数组排序的方法</code>。当时一下子没有想到很好的解决方案，不过回头考虑了一下，还是弄出了一个解决方案。<br><a id="more"></a></p>
+        <p>前几天偶遇一问题：<code>如何随机的打乱一个数组的排序</code>。当时一下子没有想到很好的解决方案，不过回头考虑了一下，还是弄出了一个解决方案。</p>
+<a id="more"></a>
 <h1 id="我的方案"><a href="#我的方案" class="headerlink" title="我的方案"></a>我的方案</h1><p>首先要打乱排序，我第一个想到的就是随机数，然后就是循环。<br>ok，按照这个思路我写了一个方法，代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">disorganizeArray</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">Object</span>.prototype.toString.call(arr) !== <span class="string">'[object Array]'</span>)&#123; <span class="keyword">return</span> &#125;</div><div class="line">    <span class="keyword">var</span> _temArr = arr.concat(),</div><div class="line">        _resArr = [];</div><div class="line"></div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> j = <span class="number">0</span>, len = arr.length; j &lt; len; j ++)&#123;</div><div class="line">        <span class="keyword">var</span> _temLen = _temArr.length,</div><div class="line">            _index = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random()*_temLen);</div><div class="line"></div><div class="line">        _resArr[j] = _temArr[_index];</div><div class="line">        _temArr.splice(_index, <span class="number">1</span>)</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _resArr;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>测试了一下还是可以实现这个需求的<br><img src="http://7xp0vg.com1.z0.glb.clouddn.com/20171031-1.png" alt=""></p>
 <h1 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h1><p>然后又在网上查了下，发现一个更优的方法，可以直接用<code>sort()</code>实现。<br>具体代码如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">disorganizeArray</span>(<span class="params">arr</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">Object</span>.prototype.toString.call(arr) !== <span class="string">'[object Array]'</span>)&#123; <span class="keyword">return</span> &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> arr.sort(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.random() &gt; <span class="number">0.5</span> ? <span class="number">1</span> : <span class="number">-1</span>;</div><div class="line">    &#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
@@ -432,11 +432,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">人和事</a>
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">总结</a>
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -444,11 +444,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">人和事</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
+                <a href="javascript:void(0)" class="js-tag color3">总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -460,15 +460,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">iScroll</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">2016</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,19 +488,19 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">URL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">年终总结</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">微信</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">发表情</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">URL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">年终总结</a>
               </li>
             
             <div class="clearfix"></div>
