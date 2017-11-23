@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>记在2017年初 | Simba的博客</title>
+  <title>浅析setTimeout | Simba的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说来惭愧，回看我上一篇博客还是在五月底写的，已经大半年没有更新博客了，转眼间又是一年过去，在此记录下16年的点滴！">
-<meta name="keywords" content="hexo,年终总结">
+  <meta name="description" content="作为一名前端er，对于 setTimeout 肯定不会陌生，平时的一些开发任务中也会经常用到。但是，你真的了解它么？">
+<meta name="keywords" content="hexo,setTimeout">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记在2017年初">
-<meta property="og:url" content="http://yoursite.com/2017/01/05/记在2017年初/index.html">
+<meta property="og:title" content="浅析setTimeout">
+<meta property="og:url" content="http://yoursite.com/2017/11/23/浅析setTimeout/index.html">
 <meta property="og:site_name" content="Simba的博客">
-<meta property="og:description" content="说来惭愧，回看我上一篇博客还是在五月底写的，已经大半年没有更新博客了，转眼间又是一年过去，在此记录下16年的点滴！">
-<meta property="og:updated_time" content="2017-09-20T02:47:34.075Z">
+<meta property="og:description" content="作为一名前端er，对于 setTimeout 肯定不会陌生，平时的一些开发任务中也会经常用到。但是，你真的了解它么？">
+<meta property="og:updated_time" content="2017-11-23T11:31:59.915Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记在2017年初">
-<meta name="twitter:description" content="说来惭愧，回看我上一篇博客还是在五月底写的，已经大半年没有更新博客了，转眼间又是一年过去，在此记录下16年的点滴！">
+<meta name="twitter:title" content="浅析setTimeout">
+<meta name="twitter:description" content="作为一名前端er，对于 setTimeout 肯定不会陌生，平时的一些开发任务中也会经常用到。但是，你真的了解它么？">
   
     <link rel="alternative" href="/atom.xml" title="Simba的博客" type="application/atom+xml">
   
@@ -160,34 +160,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-记在2017年初" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-浅析setTimeout" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      记在2017年初
+      浅析setTimeout
     </h1>
   
 
         
-        <a href="/2017/01/05/记在2017年初/" class="archive-article-date">
-  	<time datetime="2017-01-05T02:10:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-05</time>
+        <a href="/2017/11/23/浅析setTimeout/" class="archive-article-date">
+  	<time datetime="2017-11-23T11:31:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>说来惭愧，回看我上一篇博客还是在五月底写的，已经大半年没有更新博客了，转眼间又是一年过去，在此记录下16年的点滴！<br><a id="more"></a></p>
-<h1 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h1><p>年初的时候由于公司上层的问题，导致整个公司直接倒闭，所以我光荣的成为了一名待业人员。哎，这就是小公司的悲哀吧！</p>
-<p>之后进入斧子科技，环境和方向都很合我胃口，还有两个小伙伴每天一起叨叨撸代码。然而情怀毕竟是情怀，短短五个月就面临着去留的抉择，最终还是选择离开！</p>
-<p>9月份的时候入职中盟科技，算是给自己换一个环境和方向，稍微偏离了互联网，主做智能交通这块。目前待到现在还算愉快，每天都是忙碌的充实的，学习到了很多东西！</p>
-<h1 id="感情"><a href="#感情" class="headerlink" title="感情"></a>感情</h1><p>今年终于步入婚姻的殿堂了，想想还是有点小激动，然而跟多的还是压力和责任。</p>
-<p>老人们都说了成家立业，先成家后立业。我之前对此是嗤之以鼻的，但是当你真正经历了一些事情之后，想法就会悄然改变。</p>
-<p>我和老婆大人是初中同学，相识14年，相恋2年。一切都是水到渠成的感觉，对于结婚，我有恐惧，也有迷茫，但我没有后悔。</p>
-<p>愿此生与你相依！</p>
+        <p>作为一名前端er，对于 <code>setTimeout</code> 肯定不会陌生，平时的一些开发任务中也会经常用到。但是，你真的了解它么？<br><a id="more"></a></p>
+<h1 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h1><p>我们想了解 <code>setTimeout</code> ，首先要知道javascript是单线程的。<br>为什么javascript是单线程的呢？</p>
+<p>作为浏览器的脚本语言，javascript最大的用途就是与用户交互。假如说javascript不是单线程的，那么当用户与浏览器有交互动作的时候，一个进程里添加了一个节点，另一个进程里删除了这个节点。这样的话，你让浏览器怎么办啊！它也很绝望啊！</p>
+<p>所以javascript还是乖乖的单线程吧。</p>
+<h1 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="number">1</span>);</div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</div><div class="line">&#125;, <span class="number">0</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="number">3</span>);</div></pre></td></tr></table></figure>
+<p>很明显，大家都知道上面代码的输出结果是1、3、2。这时候就有疑惑了，浏览器不是单线程的么，这又是什么鬼啊。</p>
+<p>其实 <code>setTimeout</code> 是一个异步任务，何又为异步任务，简单的说就是可以改变程序正常执行的任务。</p>
+<p>那么异步任务的执行机制是什么？<br>具体情况如下：<br>ps：同步执行也是如此，因为它可以被视为没有异步任务的异步执行。</p>
+<blockquote>
+<p>（1）所有同步任务都在主线程上执行，形成一个执行栈（execution context stack）。<br>（2）主线程之外，还存在一个”任务队列”（task queue）。只要异步任务有了运行结果，就在”任务队列”之中放置一个事件。<br>（3）一旦”执行栈”中的所有同步任务执行完毕，系统就会读取”任务队列”，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。<br>（4）主线程不断重复上面的第三步。</p>
+</blockquote>
+<p>只要主线程空了，就会去读取”任务队列”，这样不断的循环，这就是JavaScript的运行机制，也就是 <code>Event Loop</code>。</p>
+<h1 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout"></a>setTimeout</h1><p>那现在我们再来看看 <code>setTimeout</code>，回到上面那段代码，意思就是在 <code>0s</code> 之后把 <code>function(){ console.log(2) }</code> 放入 <code>任务队列</code> 中，等到 <code>主线程</code> 空闲之后，就会从 <code>任务队列</code> 中读取这个任务并执行。<br>所以上面代码的最终结果是在打印完1和3之后再来打印2。</p>
+<p>ps： HTML5标准规定了setTimeout()的第二个参数的最小值（最短间隔），不得低于4毫秒，如果低于这个值，就会自动增加。<br>ps：setTimeout()只是在一定的时间后将事件插入 <code>任务队列</code>，并不能保证在规定的时间后能立即执行你所写的事件方法。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>阮老师的 <a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="external">JavaScript 运行机制详解：再谈Event Loop</a></p>
 
       
 
@@ -205,7 +212,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">年终总结</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">setTimeout</a>
         		</li>
       		
 		</ul>
@@ -217,7 +224,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随心所记//" class="article-tag-list-link color5">随心所记</a>
+        			<a href="/categories/前端记录//" class="article-tag-list-link color5">前端记录</a>
         		</li>
       		
 		</ul>
@@ -272,7 +279,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/01/05/记在2017年初/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2017/11/23/浅析setTimeout/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -286,18 +293,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/09/22/hexo + github 域名绑定/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          hexo + github 域名绑定
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/05/30/css晋级之路（二）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">css晋级之路（二）</div>
+    <a href="/2017/11/07/浅析URL/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">浅析URL</div>
       <i class="icon-circle-right"></i>
     </a>
   
