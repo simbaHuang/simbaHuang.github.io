@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/11/23/浅析setTimeout/index.html">
 <meta property="og:site_name" content="Simba的博客">
 <meta property="og:description" content="作为一名前端er，对于 setTimeout 肯定不会陌生，平时的一些开发任务中也会经常用到。但是，你真的了解它么？">
-<meta property="og:updated_time" content="2017-11-23T11:31:59.915Z">
+<meta property="og:updated_time" content="2017-11-23T11:35:01.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅析setTimeout">
 <meta name="twitter:description" content="作为一名前端er，对于 setTimeout 肯定不会陌生，平时的一些开发任务中也会经常用到。但是，你真的了解它么？">
@@ -191,7 +191,7 @@
 <blockquote>
 <p>（1）所有同步任务都在主线程上执行，形成一个执行栈（execution context stack）。<br>（2）主线程之外，还存在一个”任务队列”（task queue）。只要异步任务有了运行结果，就在”任务队列”之中放置一个事件。<br>（3）一旦”执行栈”中的所有同步任务执行完毕，系统就会读取”任务队列”，看看里面有哪些事件。那些对应的异步任务，于是结束等待状态，进入执行栈，开始执行。<br>（4）主线程不断重复上面的第三步。</p>
 </blockquote>
-<p>只要主线程空了，就会去读取”任务队列”，这样不断的循环，这就是JavaScript的运行机制，也就是 <code>Event Loop</code>。</p>
+<p>只要主线程空了，就会去读取 <code>任务队列</code>，这样不断的循环，这就是JavaScript的运行机制，也就是 <code>Event Loop</code>。</p>
 <h1 id="setTimeout"><a href="#setTimeout" class="headerlink" title="setTimeout"></a>setTimeout</h1><p>那现在我们再来看看 <code>setTimeout</code>，回到上面那段代码，意思就是在 <code>0s</code> 之后把 <code>function(){ console.log(2) }</code> 放入 <code>任务队列</code> 中，等到 <code>主线程</code> 空闲之后，就会从 <code>任务队列</code> 中读取这个任务并执行。<br>所以上面代码的最终结果是在打印完1和3之后再来打印2。</p>
 <p>ps： HTML5标准规定了setTimeout()的第二个参数的最小值（最短间隔），不得低于4毫秒，如果低于这个值，就会自动增加。<br>ps：setTimeout()只是在一定的时间后将事件插入 <code>任务队列</code>，并不能保证在规定的时间后能立即执行你所写的事件方法。</p>
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>阮老师的 <a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="external">JavaScript 运行机制详解：再谈Event Loop</a></p>
@@ -425,14 +425,6 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Handlebars</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">人和事</a>
               </li>
              
@@ -449,7 +441,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Handlebars</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">iScroll</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -457,11 +465,27 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">URL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">装逼</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color1">setTimeout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">微信</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">发表情</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -473,31 +497,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iScroll</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">setTimeout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">年终总结</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">URL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">微信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">发表情</a>
               </li>
             
             <div class="clearfix"></div>
