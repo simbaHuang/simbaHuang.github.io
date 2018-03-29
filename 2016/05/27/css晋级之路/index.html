@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/border-3.png">
 <meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/border-4.png">
 <meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/background-1.png">
-<meta property="og:updated_time" content="2016-05-30T04:17:12.000Z">
+<meta property="og:updated_time" content="2017-11-27T08:49:24.122Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css晋级之路">
 <meta name="twitter:description" content="随着浏览器的更新，css3越来越普及了，之前一直没有系统的学习过css3的一些东西，不过上次在技术群里看见有人推荐《css揭秘》这本书，忍不住好奇就卖了下来，真是收益匪浅。下面我们就来一场css的奇妙之旅吧！">
@@ -187,17 +187,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>随着浏览器的更新，css3越来越普及了，之前一直没有系统的学习过css3的一些东西，不过上次在技术群里看见有人推荐《css揭秘》这本书，忍不住好奇就卖了下来，真是收益匪浅。下面我们就来一场css的奇妙之旅吧！<br><a id="more"></a></p>
-<h1 id="透明边框"><a href="#透明边框" class="headerlink" title="透明边框"></a>透明边框</h1><p>很多人都可能都知道怎么弄透明背景，没错就是颜色值可以用rgba的格式来设置，那么透明边框是不是也是这样的呢，让我们来看看效果：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">   <span class="selector-tag">background</span>: <span class="selector-id">#ff0066</span>;</div><div class="line"><span class="selector-tag">border</span>: 10<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">rgba</span>(0,0,0,<span class="selector-class">.5</span>);</div></pre></td></tr></table></figure></p>
-<p>效果如下：<img src="http://7xp0vg.com1.z0.glb.clouddn.com/border-1.png" alt=""><br> 欸，是不是感觉有点不对劲，没错，背景的颜色也在边框的颜色下面了，这不是我们想要的结果。ok，让我们稍微的修改一下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   <span class="selector-tag">background</span>: <span class="selector-id">#ff0066</span>;</div><div class="line"><span class="selector-tag">border</span>: 10<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">rgba</span>(0,0,0,<span class="selector-class">.5</span>);</div><div class="line"><span class="selector-tag">background-clip</span>: <span class="selector-tag">padding-box</span>;</div></pre></td></tr></table></figure></p>
+<h1 id="透明边框"><a href="#透明边框" class="headerlink" title="透明边框"></a>透明边框</h1><p>很多人都可能都知道怎么弄透明背景，没错就是颜色值可以用rgba的格式来设置，那么透明边框是不是也是这样的呢，让我们来看看效果：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-id">#ff0066</span>;</div><div class="line"><span class="selector-tag">border</span>: 10<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">rgba</span>(0,0,0,<span class="selector-class">.5</span>);</div></pre></td></tr></table></figure></p>
+<p>效果如下：<img src="http://7xp0vg.com1.z0.glb.clouddn.com/border-1.png" alt=""><br> 欸，是不是感觉有点不对劲，没错，背景的颜色也在边框的颜色下面了，这不是我们想要的结果。ok，让我们稍微的修改一下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-id">#ff0066</span>;</div><div class="line"><span class="selector-tag">border</span>: 10<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">rgba</span>(0,0,0,<span class="selector-class">.5</span>);</div><div class="line"><span class="selector-tag">background-clip</span>: <span class="selector-tag">padding-box</span>;</div></pre></td></tr></table></figure></p>
 <p>这样是不是就对了：<img src="http://7xp0vg.com1.z0.glb.clouddn.com/border-2.png" alt=""><br><code>background-clip</code> 这个属性可以规定元素的背景绘制区域，默认值是 <code>border-box</code>，其他值还有 <code>padding-box</code> 和 <code>content-box</code> 。根据盒模型相信很快就会明白这是啥意思了。我们设置为 <code>padding-box</code> 就能让背景色被裁剪到内边距框，这样就不会影响到边框的颜色了。<br>ps：设置透明色除了 <code>rgba()</code>，还可以用 <code>hsla(H,S,L,A)</code> 同样是有四个参数，分别是：<br>H：Hue(色调)。0(或360)表示红色，120表示绿色，240表示蓝色，也可取其他数值来指定颜色。取值为：0 - 360<br>S：Saturation(饱和度)。取值为：0.0% - 100.0%<br>L：Lightness(亮度)。取值为：0.0% - 100.0%<br>A：Alpha透明度。取值0~1之间。<br>详细可 <a href="http://www.css88.com/book/css/values/color/hsla.htm" target="_blank" rel="external">戳这</a> 查看。</p>
-<h1 id="多重边框"><a href="#多重边框" class="headerlink" title="多重边框"></a>多重边框</h1><p>可能很多人之前都有碰到过这样的需求，设计稿会有双重边框或者是多重边框，双重的话到还好，多重的话只能是GG了。<br>ok,首先双重边框的话我们可以用 <code>outline</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   <span class="selector-tag">background</span>: <span class="selector-tag">yellowgreen</span>;</div><div class="line"><span class="selector-tag">border</span><span class="selector-pseudo">:10px</span> <span class="selector-tag">solid</span> <span class="selector-id">#655</span>;</div><div class="line"><span class="selector-tag">outline</span>: 5<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">deeppink</span>;</div></pre></td></tr></table></figure></p>
-<p>可以达到我们预期的效果。<br>OK，现在让我们尝试另一种方法： <code>box-shadow</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">   <span class="selector-tag">margin</span>: 25<span class="selector-tag">px</span>;</div><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">yellowgreen</span>;</div><div class="line"><span class="selector-tag">box-shadow</span>: 0 0 0 10<span class="selector-tag">px</span> <span class="selector-id">#655</span>,</div><div class="line">			0 0 0 15<span class="selector-tag">px</span> <span class="selector-tag">deeppink</span>;</div></pre></td></tr></table></figure></p>
+<h1 id="多重边框"><a href="#多重边框" class="headerlink" title="多重边框"></a>多重边框</h1><p>可能很多人之前都有碰到过这样的需求，设计稿会有双重边框或者是多重边框，双重的话到还好，多重的话只能是GG了。<br>ok,首先双重边框的话我们可以用 <code>outline</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">yellowgreen</span>;</div><div class="line"><span class="selector-tag">border</span><span class="selector-pseudo">:10px</span> <span class="selector-tag">solid</span> <span class="selector-id">#655</span>;</div><div class="line"><span class="selector-tag">outline</span>: 5<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">deeppink</span>;</div></pre></td></tr></table></figure></p>
+<p>可以达到我们预期的效果。<br>OK，现在让我们尝试另一种方法： <code>box-shadow</code><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">margin</span>: 25<span class="selector-tag">px</span>;</div><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">yellowgreen</span>;</div><div class="line"><span class="selector-tag">box-shadow</span>: 0 0 0 10<span class="selector-tag">px</span> <span class="selector-id">#655</span>,</div><div class="line">			0 0 0 15<span class="selector-tag">px</span> <span class="selector-tag">deeppink</span>;</div></pre></td></tr></table></figure></p>
 <p>效果跟outline是一样的：<img src="http://7xp0vg.com1.z0.glb.clouddn.com/border-3.png" alt=""><br><code>box-shadow</code> 支持逗号分隔语法，我们可以创建任意数量的投影，但是 <code>box-shadow</code> 是层层叠加的，第一层投影位于最顶层，比如上面的列子我要一个 <code>10px</code> 和 <code>5px</code> 的边框，那个第二个边框的宽度就要设成 <code>15px</code> 。<br>ps：值得注意的是 <code>box-shadow</code> 不会影响布局，也不会受到 <code>box-sizing</code> 的影响。所以我们可以通过内边距或者外边距来模拟边框所需要占据的空间。</p>
-<p>另外： <code>outline</code> 可以配合 <code>outline-offset</code> 属性来控制它跟元素边缘之间的间距，且这个属性可以接受负值。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">   <span class="selector-tag">background</span>: <span class="selector-tag">yellowgreen</span>;</div><div class="line"><span class="selector-tag">border</span><span class="selector-pseudo">:14px</span> <span class="selector-tag">solid</span> <span class="selector-id">#655</span>;</div><div class="line"><span class="selector-tag">outline</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">deeppink</span>;</div><div class="line"><span class="selector-tag">outline-offset</span><span class="selector-pseudo">:-7px</span>;</div></pre></td></tr></table></figure></p>
+<p>另外： <code>outline</code> 可以配合 <code>outline-offset</code> 属性来控制它跟元素边缘之间的间距，且这个属性可以接受负值。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">yellowgreen</span>;</div><div class="line"><span class="selector-tag">border</span><span class="selector-pseudo">:14px</span> <span class="selector-tag">solid</span> <span class="selector-id">#655</span>;</div><div class="line"><span class="selector-tag">outline</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">deeppink</span>;</div><div class="line"><span class="selector-tag">outline-offset</span><span class="selector-pseudo">:-7px</span>;</div></pre></td></tr></table></figure></p>
 <p><img src="http://7xp0vg.com1.z0.glb.clouddn.com/border-4.png" alt=""></p>
 <h1 id="背景定位"><a href="#背景定位" class="headerlink" title="背景定位"></a>背景定位</h1><p>关于背景图的定位的问题，通常来讲我们都是指定距离左上角的偏移量，或者完全靠齐到其他三个角。但是如果我们碰到容器的尺寸不固定且我们需要把一个背景图定位到距离右边跟底部 <code>20px</code> 的时候，我们该怎么实现呢。</p>
-<h3 id="background-position"><a href="#background-position" class="headerlink" title="background-position"></a>background-position</h3><p>css3中 <code>background-position</code> 属性得到了扩展，它允许我们指定背景图距离任意角的偏移量。就拿我们上面说的需求来讲，我们可以这样做。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">   background: url(../images/bg.jpg) no-repeat #58a;</div><div class="line"><span class="selector-tag">background-position</span>: <span class="selector-tag">right</span> 20<span class="selector-tag">px</span> <span class="selector-tag">bottom</span> 20<span class="selector-tag">px</span>;</div></pre></td></tr></table></figure></p>
-<p>ps ： 这种情况我们需要提供一个合适的回退方案，防止在不支持 <code>background-position</code> 扩展语法的浏览器中，背景图会紧贴在左上角。我们可以这样做：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">   background: url(../images/bg.jpg) no-repeat right bottom #58a;</div><div class="line"><span class="selector-tag">background-position</span>: <span class="selector-tag">right</span> 20<span class="selector-tag">px</span> <span class="selector-tag">bottom</span> 20<span class="selector-tag">px</span>;</div></pre></td></tr></table></figure></p>
+<h3 id="background-position"><a href="#background-position" class="headerlink" title="background-position"></a>background-position</h3><p>css3中 <code>background-position</code> 属性得到了扩展，它允许我们指定背景图距离任意角的偏移量。就拿我们上面说的需求来讲，我们可以这样做。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">background: url(../images/bg.jpg) no-repeat #58a;</div><div class="line"><span class="selector-tag">background-position</span>: <span class="selector-tag">right</span> 20<span class="selector-tag">px</span> <span class="selector-tag">bottom</span> 20<span class="selector-tag">px</span>;</div></pre></td></tr></table></figure></p>
+<p>ps ： 这种情况我们需要提供一个合适的回退方案，防止在不支持 <code>background-position</code> 扩展语法的浏览器中，背景图会紧贴在左上角。我们可以这样做：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">background: url(../images/bg.jpg) no-repeat right bottom #58a;</div><div class="line"><span class="selector-tag">background-position</span>: <span class="selector-tag">right</span> 20<span class="selector-tag">px</span> <span class="selector-tag">bottom</span> 20<span class="selector-tag">px</span>;</div></pre></td></tr></table></figure></p>
 <h3 id="background-origin"><a href="#background-origin" class="headerlink" title="background-origin"></a>background-origin</h3><p>假如我们背景图需要的偏移值刚好跟容器的内边距是一致的，上述的方法就不够diy了，我们每次修改内边距就需要修改三个地方，这时候 <code>background-origin</code> 就能很好的实现这个需求。或许很多人都会疑惑过<br>我们经常写的这段代码<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background-position</span>: <span class="selector-tag">left</span> <span class="selector-tag">top</span>;</div></pre></td></tr></table></figure></p>
 <p>这里的 <code>left</code> 和 <code>top</code> 到底是相对那个的定位，我们知道元素都有三个矩形框分别是： <code>border-box</code> 、<code>padding-box</code> 、<code>content-box</code>。而我们平时的背景定位肯定就是 <code>padding-box</code> 了。css3中新增了一个 <code>background-origin</code> 属性，它可以改变这种行为。代码如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">background: url(../images/bg.jpg) no-repeat right bottom #58a;</div><div class="line"><span class="selector-tag">background-origin</span>: <span class="selector-tag">content-box</span>;</div></pre></td></tr></table></figure></p>
 <p>这样的话我们就能得到跟上述需求一样的效果了。</p>
@@ -360,7 +360,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Simba
+    		&copy; 2018 Simba
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -455,6 +455,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Handlebars</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
@@ -463,11 +475,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Handlebars</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color3">iScroll</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,7 +483,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iScroll</a>
+                <a href="javascript:void(0)" class="js-tag color5">2016</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -483,15 +491,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">2016</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">URL</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -499,15 +499,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">URL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">setTimeout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">微信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">发表情</a>
+                <a href="javascript:void(0)" class="js-tag color5">年终总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,7 +519,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">年终总结</a>
+                <a href="javascript:void(0)" class="js-tag color3">微信</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">发表情</a>
               </li>
             
             <div class="clearfix"></div>

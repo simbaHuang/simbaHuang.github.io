@@ -26,7 +26,7 @@
 <meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/background-10.png">
 <meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/background-11.png">
 <meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/background-12.png">
-<meta property="og:updated_time" content="2016-05-31T08:46:18.000Z">
+<meta property="og:updated_time" content="2017-11-27T08:50:10.413Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="css晋级之路（二）">
 <meta name="twitter:description" content="上一篇 文章有讲到边框跟背景图的定位。这一篇我们就继续讲讲背景的运用。">
@@ -197,20 +197,20 @@
 <p>效果图：<br><img src="http://7xp0vg.com1.z0.glb.clouddn.com/background-2.png" alt=""><br>这样我们就实现的一个简单的双色的背景渐变了。<br><code>linear-gradient</code> 简单来讲就是用线性渐变创建图像<br>详情可 <a href="http://css.doyoe.com/" target="_blank" rel="external">戳这里</a>。<br>ok,那我们再来个进阶版的，我现在想要背景渐变从元素高度的 <code>30%</code> 开始到 <code>70%</code> 结束，我们可以这样写：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-id">#fb3</span> 30%, <span class="selector-id">#58a</span> 70%);</div></pre></td></tr></table></figure></p>
 <p><img src="http://7xp0vg.com1.z0.glb.clouddn.com/background-3.png" alt="">这样我们就能很好的控制渐变的范围了，到了这里可能就会有很多人会问如果我两个颜色值都设置 <code>50%</code> 会怎样：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-id">#fb3</span> 50%, <span class="selector-id">#58a</span> 50%);</div></pre></td></tr></table></figure></p>
 <p><img src="http://7xp0vg.com1.z0.glb.clouddn.com/background-4.png" alt=""><br>css图像（第三版）中就讲到：<code>如果多个色标具有相同位的位置，他们会产生一个无限小的过度区域，过度的起始色分别是第一个和最后一个指定值。从效果上看，颜色会在那个位置突然变化，而不是一个平滑的渐变过程。</code>所以我们看到的就是如上图那样的对半分的两个颜色背景了。</p>
-<h3 id="条纹背景"><a href="#条纹背景" class="headerlink" title="条纹背景"></a>条纹背景</h3><p>既然我们设置的是背景图，那我们还可以通过 <code>background-size</code> 调整其尺寸：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">   <span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-id">#fb3</span> 33<span class="selector-class">.3</span>%, <span class="selector-id">#58a</span> 0, <span class="selector-id">#58a</span> 66<span class="selector-class">.6</span>%, <span class="selector-tag">yellowgreen</span> 0);</div><div class="line"><span class="selector-tag">background-size</span>: 100% 30%;</div></pre></td></tr></table></figure></p>
-<p>这样我就可以得到如下图所示的条纹背景了。<br><img src="http://7xp0vg.com1.z0.glb.clouddn.com/background-5.png" alt=""><br>既然晓得水平条纹，那相对来说垂直条纹也是一样的，只要把背景图旋转90度就OK了：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">   <span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-tag">to</span> <span class="selector-tag">right</span>, <span class="selector-id">#fb3</span> 50%, <span class="selector-tag">yellowgreen</span> 0);<span class="comment">/*to right 可换成 90deg*/</span></div><div class="line"><span class="selector-tag">background-size</span>: 30% 100%;</div></pre></td></tr></table></figure></p>
+<h3 id="条纹背景"><a href="#条纹背景" class="headerlink" title="条纹背景"></a>条纹背景</h3><p>既然我们设置的是背景图，那我们还可以通过 <code>background-size</code> 调整其尺寸：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-id">#fb3</span> 33<span class="selector-class">.3</span>%, <span class="selector-id">#58a</span> 0, <span class="selector-id">#58a</span> 66<span class="selector-class">.6</span>%, <span class="selector-tag">yellowgreen</span> 0);</div><div class="line"><span class="selector-tag">background-size</span>: 100% 30%;</div></pre></td></tr></table></figure></p>
+<p>这样我就可以得到如下图所示的条纹背景了。<br><img src="http://7xp0vg.com1.z0.glb.clouddn.com/background-5.png" alt=""><br>既然晓得水平条纹，那相对来说垂直条纹也是一样的，只要把背景图旋转90度就OK了：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-tag">to</span> <span class="selector-tag">right</span>, <span class="selector-id">#fb3</span> 50%, <span class="selector-tag">yellowgreen</span> 0);<span class="comment">/*to right 可换成 90deg*/</span></div><div class="line"><span class="selector-tag">background-size</span>: 30% 100%;</div></pre></td></tr></table></figure></p>
 <p><img src="http://7xp0vg.com1.z0.glb.clouddn.com/background-6.png" alt=""></p>
-<p>ok,我们通过旋转 <code>90°</code>可以得到垂直的条纹背景，那我们再发散一下，旋转45度是不是就可以得到倾斜的背景图呢。让我们来试一试：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">   <span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(45<span class="selector-tag">deg</span>, <span class="selector-id">#fb3</span> 50%, <span class="selector-tag">yellowgreen</span> 0);</div><div class="line"><span class="selector-tag">background-size</span>: 30% 100%;</div></pre></td></tr></table></figure></p>
+<p>ok,我们通过旋转 <code>90°</code>可以得到垂直的条纹背景，那我们再发散一下，旋转45度是不是就可以得到倾斜的背景图呢。让我们来试一试：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(45<span class="selector-tag">deg</span>, <span class="selector-id">#fb3</span> 50%, <span class="selector-tag">yellowgreen</span> 0);</div><div class="line"><span class="selector-tag">background-size</span>: 30% 100%;</div></pre></td></tr></table></figure></p>
 <p><img src="http://7xp0vg.com1.z0.glb.clouddn.com/background-13.png" alt=""><br>GG,这是什么鬼。。让我们来看下,原来我们这样的旋转只是把每个平铺的单元旋转了45度，而不是把整个背景旋转的。所以我们要倾斜的条纹背景，我们的每个单元应该含有四条条纹而不是两条条纹，代码修改如下：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">linear-gradient</span>(45<span class="selector-tag">deg</span>, <span class="selector-id">#fb3</span> 25%,<span class="selector-id">#58a</span> 0, <span class="selector-id">#58a</span> 50%,<span class="selector-id">#fb3</span> 0, <span class="selector-id">#fb3</span> 75%, <span class="selector-id">#58a</span> 0);</div></pre></td></tr></table></figure></p>
 <p>效果图如下：<img src="http://7xp0vg.com1.z0.glb.clouddn.com/background-7.png" alt=""></p>
 <p>是不是到这里你觉得一切都完美了，NO!N0!NO!,当你在调整 <code>background-size</code> 的时候你就可能发现你的倾斜条纹又乱了，这就不展示出来了，有想法的可以自己去试一试。<br>这时候 <code>repeating-linear-gradient</code> 闪亮登场了。顾名思义，就是循环版的线性渐变，它跟 <code>linear-gradient</code> 的工作方式是类似的，只有一点不同：色标是无限循环重复的，直到填满整个背景。<br>让我们来看一下具体的列子：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-tag">repeating-linear-gradient</span>(45<span class="selector-tag">deg</span>, <span class="selector-id">#fb3</span>, <span class="selector-id">#fb3</span> 25%, <span class="selector-id">#58a</span> 0, <span class="selector-id">#58a</span> 50%);</div></pre></td></tr></table></figure></p>
 <p><img src="http://7xp0vg.com1.z0.glb.clouddn.com/background-8.png" alt="">这样的话我们就能很方便的做出条纹效果，想怎么旋转就怎么旋转。</p>
 <h3 id="复杂背景"><a href="#复杂背景" class="headerlink" title="复杂背景"></a>复杂背景</h3><p>条纹什么的都是小儿科，来我们来再看一看更复杂一点的。</p>
-<p>我们先来一个网格的，直接上代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">   <span class="selector-tag">background</span>: <span class="selector-id">#58a</span>;</div><div class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-id">#fb3</span> 1<span class="selector-tag">px</span>, <span class="selector-tag">transparent</span> 0),</div><div class="line">				<span class="selector-tag">linear-gradient</span>(90<span class="selector-tag">deg</span>, <span class="selector-id">#fb3</span> 1<span class="selector-tag">px</span>, <span class="selector-tag">transparent</span> 0);</div><div class="line"><span class="selector-tag">background-size</span>: 30<span class="selector-tag">px</span> 30<span class="selector-tag">px</span>;</div></pre></td></tr></table></figure></p>
+<p>我们先来一个网格的，直接上代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-id">#58a</span>;</div><div class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">linear-gradient</span>(<span class="selector-id">#fb3</span> 1<span class="selector-tag">px</span>, <span class="selector-tag">transparent</span> 0),</div><div class="line">				<span class="selector-tag">linear-gradient</span>(90<span class="selector-tag">deg</span>, <span class="selector-id">#fb3</span> 1<span class="selector-tag">px</span>, <span class="selector-tag">transparent</span> 0);</div><div class="line"><span class="selector-tag">background-size</span>: 30<span class="selector-tag">px</span> 30<span class="selector-tag">px</span>;</div></pre></td></tr></table></figure></p>
 <p>这样我们就能得到一个 <code>30x30</code> 的网格背景了：<br><img src="http://7xp0vg.com1.z0.glb.clouddn.com/background-10.png" alt=""></p>
-<p>圆点：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">   <span class="selector-tag">background</span>: <span class="selector-id">#655</span>;</div><div class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">radial-gradient</span>(<span class="selector-tag">tan</span> 30%, <span class="selector-tag">transparent</span> 0),</div><div class="line">				<span class="selector-tag">radial-gradient</span>(<span class="selector-tag">tan</span> 30%, <span class="selector-tag">transparent</span> 0);</div><div class="line"><span class="selector-tag">background-size</span>: 30<span class="selector-tag">px</span> 30<span class="selector-tag">px</span>;</div><div class="line"><span class="selector-tag">background-position</span>: 0 0, 15<span class="selector-tag">px</span> 15<span class="selector-tag">px</span>;</div></pre></td></tr></table></figure></p>
+<p>圆点：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-id">#655</span>;</div><div class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">radial-gradient</span>(<span class="selector-tag">tan</span> 30%, <span class="selector-tag">transparent</span> 0),</div><div class="line">				<span class="selector-tag">radial-gradient</span>(<span class="selector-tag">tan</span> 30%, <span class="selector-tag">transparent</span> 0);</div><div class="line"><span class="selector-tag">background-size</span>: 30<span class="selector-tag">px</span> 30<span class="selector-tag">px</span>;</div><div class="line"><span class="selector-tag">background-position</span>: 0 0, 15<span class="selector-tag">px</span> 15<span class="selector-tag">px</span>;</div></pre></td></tr></table></figure></p>
 <p><img src="http://7xp0vg.com1.z0.glb.clouddn.com/background-11.png" alt=""></p>
-<p>最后再来个棋盘：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">   <span class="selector-tag">background</span>: <span class="selector-id">#eee</span>;</div><div class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">linear-gradient</span>(45<span class="selector-tag">deg</span>, <span class="selector-id">#bbb</span> 25%, <span class="selector-tag">transparent</span> 0),</div><div class="line">				<span class="selector-tag">linear-gradient</span>(45<span class="selector-tag">deg</span>, <span class="selector-tag">transparent</span> 75%, <span class="selector-id">#bbb</span> 0),</div><div class="line">				<span class="selector-tag">linear-gradient</span>(45<span class="selector-tag">deg</span>, <span class="selector-id">#bbb</span> 25%, <span class="selector-tag">transparent</span> 0),</div><div class="line">				<span class="selector-tag">linear-gradient</span>(45<span class="selector-tag">deg</span>, <span class="selector-tag">transparent</span> 75%, <span class="selector-id">#bbb</span> 0);</div><div class="line"><span class="selector-tag">background-size</span>: 30<span class="selector-tag">px</span> 30<span class="selector-tag">px</span>;</div><div class="line"><span class="selector-tag">background-position</span>: 0 0, 15<span class="selector-tag">px</span> 15<span class="selector-tag">px</span>, 15<span class="selector-tag">px</span> 15<span class="selector-tag">px</span>, 30<span class="selector-tag">px</span> 30<span class="selector-tag">px</span>;</div></pre></td></tr></table></figure></p>
+<p>最后再来个棋盘：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">background</span>: <span class="selector-id">#eee</span>;</div><div class="line"><span class="selector-tag">background-image</span>: <span class="selector-tag">linear-gradient</span>(45<span class="selector-tag">deg</span>, <span class="selector-id">#bbb</span> 25%, <span class="selector-tag">transparent</span> 0),</div><div class="line">				<span class="selector-tag">linear-gradient</span>(45<span class="selector-tag">deg</span>, <span class="selector-tag">transparent</span> 75%, <span class="selector-id">#bbb</span> 0),</div><div class="line">				<span class="selector-tag">linear-gradient</span>(45<span class="selector-tag">deg</span>, <span class="selector-id">#bbb</span> 25%, <span class="selector-tag">transparent</span> 0),</div><div class="line">				<span class="selector-tag">linear-gradient</span>(45<span class="selector-tag">deg</span>, <span class="selector-tag">transparent</span> 75%, <span class="selector-id">#bbb</span> 0);</div><div class="line"><span class="selector-tag">background-size</span>: 30<span class="selector-tag">px</span> 30<span class="selector-tag">px</span>;</div><div class="line"><span class="selector-tag">background-position</span>: 0 0, 15<span class="selector-tag">px</span> 15<span class="selector-tag">px</span>, 15<span class="selector-tag">px</span> 15<span class="selector-tag">px</span>, 30<span class="selector-tag">px</span> 30<span class="selector-tag">px</span>;</div></pre></td></tr></table></figure></p>
 <p><img src="http://7xp0vg.com1.z0.glb.clouddn.com/background-12.png" alt=""></p>
 <h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>以上都是一些我的个人见解，可能有些地方理解有误！</p>
 
@@ -369,7 +369,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Simba
+    		&copy; 2018 Simba
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -464,6 +464,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Handlebars</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
@@ -472,11 +484,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Handlebars</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color3">iScroll</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -484,7 +492,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iScroll</a>
+                <a href="javascript:void(0)" class="js-tag color5">2016</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -492,15 +500,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">2016</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">URL</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,15 +508,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">URL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">setTimeout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">微信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">发表情</a>
+                <a href="javascript:void(0)" class="js-tag color5">年终总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -528,7 +528,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">年终总结</a>
+                <a href="javascript:void(0)" class="js-tag color3">微信</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">发表情</a>
               </li>
             
             <div class="clearfix"></div>

@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/11/07/浅析URL/index.html">
 <meta property="og:site_name" content="Simba的博客">
 <meta property="og:description" content="我们知道平时说的 URL 就是指一个网站的地址，那具体 URL 到底是什么呢？">
-<meta property="og:updated_time" content="2017-11-15T08:57:13.760Z">
+<meta property="og:updated_time" content="2017-11-23T11:36:49.246Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅析URL">
 <meta name="twitter:description" content="我们知道平时说的 URL 就是指一个网站的地址，那具体 URL 到底是什么呢？">
@@ -182,10 +182,10 @@
       
         <p>我们知道平时说的 <code>URL</code> 就是指一个网站的地址，那具体 <code>URL</code> 到底是什么呢？</p>
 <a id="more"></a>
-<h2 id="何为-URL"><a href="#何为-URL" class="headerlink" title="何为 URL"></a>何为 URL</h2><p>说到 <code>URL</code> ,就不得不讲到 <code>URI</code> 了，让我们来先看下他们的全称是啥：<br>URL: Uniform Resource Locator，统一资源定位符<br>URI: Uniform Resource Identifier，统一资源标志符</p>
+<h1 id="何为-URL"><a href="#何为-URL" class="headerlink" title="何为 URL"></a>何为 URL</h1><p>说到 <code>URL</code> ,就不得不讲到 <code>URI</code> 了，让我们来先看下他们的全称是啥：<br>URL: Uniform Resource Locator，统一资源定位符<br>URI: Uniform Resource Identifier，统一资源标识符</p>
 <p>名词解释上来看不是很懂具体是啥意思，简单的来说 <code>URL</code> 就是互联网上得到的资源的位置和访问方法的一种简洁的表示，是互联网上标准资源的地址。<br><code>URL</code>是<code>URI</code>命名机制的一个子集。</p>
 <p>举一个不恰当的例子，比如一个人 <code>张三</code>。<br>我们要标识出这个人的话，可以用地址来标识： <code>住址协议://中国/广东/深圳/深圳大学/XX宿舍楼/XX号寝室/张三</code>，<br>也可以直接用身份证来标识，比如 <code>440305199201024321</code>。<br>我们不管是用地址的形式还是身份证的形式都能很准确的标识出 <code>张三</code>。地址的形式就是相当于 <code>URL</code>，而身份证就相当于 <code>URI</code>。而 <code>URL</code> 就是用定位的方式实现的 <code>URI</code>。</p>
-<h2 id="URL都包含什么"><a href="#URL都包含什么" class="headerlink" title="URL都包含什么"></a>URL都包含什么</h2><p>我们知道 <code>URL</code> 的概念，那现在来了解一下 <code>URL</code> 都包含了什么内容。<br>一个完整的 <code>URL</code> 应该包含以下内容：</p>
+<h1 id="URL都包含什么"><a href="#URL都包含什么" class="headerlink" title="URL都包含什么"></a>URL都包含什么</h1><p>我们知道 <code>URL</code> 的概念，那现在来了解一下 <code>URL</code> 都包含了什么内容。<br>一个完整的 <code>URL</code> 应该包含以下内容：</p>
 <ul>
 <li><code>模式/协议</code>：它告诉浏览器如何处理将要打开的文件，比如：http、https等。在地址栏输入一个网址的时候，协议部分是不用输入的，浏览器会自动补上默认的HTTP协议。</li>
 <li><code>域名</code>： 一个网站独一无二的网络名字。如果我们去掉www的前缀，比如baidu.com，这个部分就叫域名。域名的最右边就是顶级域名,常见的比如： <code>.com</code> 表示商业机构，<code>.org</code> 表示非盈利性组织、<code>.gov</code> 表示政府机构、<code>.edu</code> 表示教育及科研机构。用来表示国家顶级域名的比如： <code>.cn</code> 表示中国、<code>.us</code> 表示美国、<code>.jp</code> 表示日本。<br><code>ps</code>： 一个URL中，也可以使用IP地址作为域名使用</li>
@@ -195,8 +195,8 @@
 <li><code>锚点</code>：代表网页中的一个位置，从“#”开始到最后，都是锚部分。锚部分也不是一个URL必须的部分。</li>
 <li><code>参数</code>：从“？”开始到“#”为止之间的部分为参数部分，又称搜索部分、查询部分。参数可以允许有多个参数，参数与参数之间用“&amp;”作为分隔符。</li>
 </ul>
-<h2 id="延伸话题：-锚点和参数的区别"><a href="#延伸话题：-锚点和参数的区别" class="headerlink" title="延伸话题： 锚点和参数的区别"></a>延伸话题： 锚点和参数的区别</h2><p>1、锚点是用来指导浏览器动作的，对服务器端完全无用。所以，HTTP请求中不包括锚点；<br>2、单单改变锚点部分，浏览器只会滚动到相应位置，不会重新加载网页；<br>3、改变锚点会改变浏览器的访问历史，IE6、7不成立。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.cnblogs.com/kaituorensheng/p/3776527.html" target="_blank" rel="external">参考1</a><br><a href="http://mp.weixin.qq.com/s?src=3&amp;timestamp=1510104735&amp;ver=1&amp;signature=MUz63DYoJPfdx5qfz-PpwSzcUQyePtzpL*IwD0Uhe4IHj6cqLfZQhN7*qqOwzpvgLikCs4BQZLQDoPovaZipZ5HtyOvyjqk9YtOJAfCux62ZzTY4a4KHo3Ecp2x3Qb7abLehjrePN3eJVqERXeLLu30O25rVem-w8apuog4a9bU=" target="_blank" rel="external">参考2</a><br><a href="https://www.zhihu.com/question/21950864" target="_blank" rel="external">参考3</a></p>
+<h1 id="延伸话题：-锚点和参数的区别"><a href="#延伸话题：-锚点和参数的区别" class="headerlink" title="延伸话题： 锚点和参数的区别"></a>延伸话题： 锚点和参数的区别</h1><p>1、锚点是用来指导浏览器动作的，对服务器端完全无用。所以，HTTP请求中不包括锚点；<br>2、单单改变锚点部分，浏览器只会滚动到相应位置，不会重新加载网页；<br>3、改变锚点会改变浏览器的访问历史，IE6、7不成立。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://www.cnblogs.com/kaituorensheng/p/3776527.html" target="_blank" rel="external">参考1</a><br><a href="http://mp.weixin.qq.com/s?src=3&amp;timestamp=1510104735&amp;ver=1&amp;signature=MUz63DYoJPfdx5qfz-PpwSzcUQyePtzpL*IwD0Uhe4IHj6cqLfZQhN7*qqOwzpvgLikCs4BQZLQDoPovaZipZ5HtyOvyjqk9YtOJAfCux62ZzTY4a4KHo3Ecp2x3Qb7abLehjrePN3eJVqERXeLLu30O25rVem-w8apuog4a9bU=" target="_blank" rel="external">参考2</a><br><a href="https://www.zhihu.com/question/21950864" target="_blank" rel="external">参考3</a></p>
 
       
 
@@ -349,7 +349,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 Simba
+    		&copy; 2018 Simba
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -444,6 +444,18 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Handlebars</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">css</a>
               </li>
              
@@ -452,11 +464,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Handlebars</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color3">iScroll</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -464,7 +472,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">iScroll</a>
+                <a href="javascript:void(0)" class="js-tag color5">2016</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -472,15 +480,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">2016</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">URL</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,15 +488,15 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">URL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">setTimeout</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">微信</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">发表情</a>
+                <a href="javascript:void(0)" class="js-tag color5">年终总结</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -508,7 +508,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">年终总结</a>
+                <a href="javascript:void(0)" class="js-tag color3">微信</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">发表情</a>
               </li>
             
             <div class="clearfix"></div>
