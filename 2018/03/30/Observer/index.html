@@ -6,18 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: github | Simba的博客</title>
+  <title>简单实现一个 观察者（发布/订阅）模式 | Simba的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="兼职奶爸">
-<meta name="keywords" content="前端,js,jquery,javascript,html5,开发者,程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Simba的博客">
-<meta property="og:url" content="http://yoursite.com/tags/github/index.html">
+  <meta name="description" content="今天就让我们再来了解一下js的另一种设计模式 – 观察者模式（也被称作 发布/订阅模式）">
+<meta name="keywords" content="js,观察者,发布&#x2F;订阅">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单实现一个 观察者（发布&#x2F;订阅）模式">
+<meta property="og:url" content="http://yoursite.com/2018/03/30/Observer/index.html">
 <meta property="og:site_name" content="Simba的博客">
-<meta property="og:description" content="兼职奶爸">
+<meta property="og:description" content="今天就让我们再来了解一下js的另一种设计模式 – 观察者模式（也被称作 发布/订阅模式）">
+<meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/20180330-1.png">
+<meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/20180330-2.png">
+<meta property="og:updated_time" content="2018-03-30T06:35:27.422Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Simba的博客">
-<meta name="twitter:description" content="兼职奶爸">
+<meta name="twitter:title" content="简单实现一个 观察者（发布&#x2F;订阅）模式">
+<meta name="twitter:description" content="今天就让我们再来了解一下js的另一种设计模式 – 观察者模式（也被称作 发布/订阅模式）">
+<meta name="twitter:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/20180330-1.png">
   
     <link rel="alternative" href="/atom.xml" title="Simba的博客" type="application/atom+xml">
   
@@ -159,56 +163,72 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Observer" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/31/如何随机的打乱一个数组的排序/" class="archive-article-date">
-  	<time datetime="2017-10-31T03:46:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/31/如何随机的打乱一个数组的排序/">如何随机的打乱一个数组的排序</a>
+    <h1 class="article-title" itemprop="name">
+      简单实现一个 观察者（发布/订阅）模式
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/03/30/Observer/" class="archive-article-date">
+  	<time datetime="2018-03-30T01:46:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>今天就让我们再来了解一下js的另一种设计模式 – <code>观察者模式（也被称作 发布/订阅模式）</code></p>
+<a id="more"></a>
+<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p> <code>观察者模式</code> 定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新。</p>
+<p>简单的来说就像是微信的公众号那样，当我们 <code>关注（订阅）</code> 一个公众号之后，当公众号 <code>发布</code> 新文章后，就能 <code>推送</code> 给我们。而且一个公众号是对应多个用户的，只要你 <code>关注（订阅）</code> 就可以。当然，当你不想关注的时候还能 <code>取消关注（订阅）</code>。</p>
+<h1 id="开撸"><a href="#开撸" class="headerlink" title="开撸"></a>开撸</h1><p>废话不多说，现在就让我们简单的实现一个</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">Observer</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">let</span> _this = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="comment">//- 存放订阅的消息列表</span></div><div class="line">    _this.events = &#123;&#125;;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 消息订阅</span></div><div class="line"><span class="comment">     * @param &#123;事件名称&#125; eventName </span></div><div class="line"><span class="comment">     * @param &#123;订阅的回调函数&#125; handler </span></div><div class="line"><span class="comment">     */</span></div><div class="line">    _this.on = <span class="function"><span class="keyword">function</span>(<span class="params">eventName, handler</span>)</span>&#123;</div><div class="line">        <span class="comment">//- 判断当前订阅的事件是否存在，如不存在则新建一个数组</span></div><div class="line">        <span class="keyword">if</span>(!_this.events[eventName])&#123;</div><div class="line">            _this.events[eventName] = []</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//- 把订阅的回调事件加入当前订阅事件的数组内</span></div><div class="line">        _this.events[eventName].push(handler);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 发布消息</span></div><div class="line"><span class="comment">     * @param &#123;事件名称&#125; eventName </span></div><div class="line"><span class="comment">     */</span></div><div class="line">    _this.emit = <span class="function"><span class="keyword">function</span>(<span class="params">eventName</span>)</span>&#123;</div><div class="line">        <span class="keyword">let</span> _this = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">        <span class="comment">//- 把出去第一个事件名称的参数之外的参数 转成数组</span></div><div class="line">        <span class="keyword">let</span> otherArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">1</span>);</div><div class="line">        <span class="keyword">let</span> eventFn = _this.events[eventName];</div><div class="line"></div><div class="line">        <span class="comment">//- 判断当前事件的回调数组是否存在或有事件</span></div><div class="line">        <span class="keyword">if</span>(!eventFn || eventFn.length === <span class="number">0</span>)&#123; <span class="keyword">return</span> &#125;</div><div class="line"></div><div class="line">        <span class="comment">//- 所有的事件依此执行</span></div><div class="line">        eventFn.forEach(<span class="function"><span class="params">fn</span> =&gt;</span> &#123;</div><div class="line">            fn.apply(_this, otherArgs)</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 取消订阅</span></div><div class="line"><span class="comment">     * @param &#123;事件名称&#125; eventName </span></div><div class="line"><span class="comment">     * @param &#123;事件的回调函数&#125; handler </span></div><div class="line"><span class="comment">     */</span></div><div class="line">    _this.off = <span class="function"><span class="keyword">function</span>(<span class="params">eventName, handler</span>)</span>&#123;</div><div class="line">        <span class="keyword">let</span> _this = <span class="keyword">this</span>;</div><div class="line">        <span class="keyword">let</span> eventFn = _this.events[eventName];</div><div class="line">        </div><div class="line">        <span class="comment">//- 事件名不存在则终止</span></div><div class="line">        <span class="keyword">if</span>(!eventFn)&#123; <span class="keyword">return</span> &#125;</div><div class="line">        </div><div class="line">        <span class="comment">//- 若没有确定需要取消的事件回调函数  则把当前事件所有回调清空</span></div><div class="line">        <span class="keyword">if</span>(!handler)&#123;</div><div class="line">            eventFn.length = <span class="number">0</span>;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//- 做个筛选，取消需要取消的回调方法</span></div><div class="line">        _this.events[eventName] = eventFn.filter(<span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</div><div class="line">            <span class="keyword">return</span> event !== handler;</div><div class="line">        &#125;)</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>OK, 让我们简单的测试一下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//- 测试</span></div><div class="line"><span class="keyword">let</span> p = <span class="keyword">new</span> Observer();</div><div class="line"><span class="keyword">let</span> pEvent1 = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'pEvent1----'</span> + data)</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> pEvent2 = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'pEvent2----'</span> + data)</div><div class="line">&#125;</div><div class="line"></div><div class="line">p.on(<span class="string">'todo1'</span>, pEvent1)</div><div class="line">p.on(<span class="string">'todo1'</span>, pEvent2)</div><div class="line"></div><div class="line">p.emit(<span class="string">'todo1'</span>, <span class="string">'todo1'</span>) </div><div class="line"></div><div class="line">p.off(<span class="string">'todo1'</span>, pEvent2)</div><div class="line"></div><div class="line">p.emit(<span class="string">'todo1'</span>, <span class="string">'todo1'</span>) </div><div class="line"></div><div class="line">p.off(<span class="string">'todo1'</span>)</div><div class="line"></div><div class="line">p.emit(<span class="string">'todo1'</span>, <span class="string">'todo1'</span>)</div></pre></td></tr></table></figure>
+<p>再来看下打印结果：</p>
+<p><img src="http://7xp0vg.com1.z0.glb.clouddn.com/20180330-1.png" alt=""></p>
+<h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>有的时候，我们可能订阅一个消息可能只想让它发布一次就好了，这样我们可以再补充一个方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 订阅消息，但是只发布一次</span></div><div class="line"><span class="comment"> * @param &#123;事件名称&#125; eventName </span></div><div class="line"><span class="comment"> * @param &#123;事件的回调函数&#125; handler </span></div><div class="line"><span class="comment"> */</span></div><div class="line">_this.once = <span class="function"><span class="keyword">function</span>(<span class="params">eventName, handler</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> _this = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="comment">//- 定义一个函数 目的是在执行完之后就取消订阅</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_onceEvent</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">let</span> otherArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">0</span>);</div><div class="line">        <span class="comment">//- 执行当前回调方法</span></div><div class="line">        handler.apply(_this, otherArgs);</div><div class="line">        <span class="comment">//- 取消当前订阅事件</span></div><div class="line">        _this.off(eventName, _onceEvent)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    _this.on(eventName, _onceEvent)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>测试一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//- 测试</div><div class="line">let p = new Observer();</div><div class="line">let pEvent1 = function(data)&#123;</div><div class="line">    console.log(&apos;pEvent1----&apos; + data)</div><div class="line">&#125;</div><div class="line">let pEvent2 = function(data)&#123;</div><div class="line">    console.log(&apos;pEvent2----&apos; + data)</div><div class="line">&#125;</div><div class="line"></div><div class="line">p.on(&apos;todo1&apos;, pEvent1)</div><div class="line"></div><div class="line">p.emit(&apos;todo1&apos;, &apos;第一次&apos;)</div><div class="line">p.emit(&apos;todo1&apos;, &apos;第二次&apos;)</div><div class="line"></div><div class="line">p.once(&apos;todo2&apos;, pEvent1)</div><div class="line"></div><div class="line">p.emit(&apos;todo2&apos;, &apos;第一次&apos;)</div><div class="line">p.emit(&apos;todo2&apos;, &apos;第二次&apos;)</div></pre></td></tr></table></figure>
+<p><img src="http://7xp0vg.com1.z0.glb.clouddn.com/20180330-2.png" alt=""></p>
+<p>ok，一个简单的观察者模式初步完成。</p>
+<h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><p>参考资料：<br><a href="https://juejin.im/post/5a9108b6f265da4e7527b1a4" target="_blank" rel="external">Javascript设计模式之发布-订阅模式</a></p>
+<p>如有错误/意见，欢迎联系~</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">观察者</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">发布/订阅</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -221,70 +241,104 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2018/03/30/Observer/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/22/hexo + github 域名绑定/" class="archive-article-date">
-  	<time datetime="2017-09-22T08:09:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/28/Promise/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">简单实现一个 Promise</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/22/hexo + github 域名绑定/">hexo + github 域名绑定</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/随心所记//" class="article-tag-list-link color5">随心所记</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -307,9 +361,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
