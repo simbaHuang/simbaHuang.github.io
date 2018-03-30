@@ -17,7 +17,7 @@
 <meta property="og:description" content="今天就让我们再来了解一下js的另一种设计模式 – 观察者模式（也被称作 发布/订阅模式）">
 <meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/20180330-1.png">
 <meta property="og:image" content="http://7xp0vg.com1.z0.glb.clouddn.com/20180330-2.png">
-<meta property="og:updated_time" content="2018-03-30T06:35:27.422Z">
+<meta property="og:updated_time" content="2018-03-30T06:38:16.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单实现一个 观察者（发布&#x2F;订阅）模式">
 <meta name="twitter:description" content="今天就让我们再来了解一下js的另一种设计模式 – 观察者模式（也被称作 发布/订阅模式）">
@@ -196,7 +196,7 @@
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><p>有的时候，我们可能订阅一个消息可能只想让它发布一次就好了，这样我们可以再补充一个方法</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 订阅消息，但是只发布一次</span></div><div class="line"><span class="comment"> * @param &#123;事件名称&#125; eventName </span></div><div class="line"><span class="comment"> * @param &#123;事件的回调函数&#125; handler </span></div><div class="line"><span class="comment"> */</span></div><div class="line">_this.once = <span class="function"><span class="keyword">function</span>(<span class="params">eventName, handler</span>)</span>&#123;</div><div class="line">    <span class="keyword">let</span> _this = <span class="keyword">this</span>;</div><div class="line"></div><div class="line">    <span class="comment">//- 定义一个函数 目的是在执行完之后就取消订阅</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">_onceEvent</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">let</span> otherArgs = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>, <span class="number">0</span>);</div><div class="line">        <span class="comment">//- 执行当前回调方法</span></div><div class="line">        handler.apply(_this, otherArgs);</div><div class="line">        <span class="comment">//- 取消当前订阅事件</span></div><div class="line">        _this.off(eventName, _onceEvent)</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    _this.on(eventName, _onceEvent)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>测试一下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//- 测试</div><div class="line">let p = new Observer();</div><div class="line">let pEvent1 = function(data)&#123;</div><div class="line">    console.log(&apos;pEvent1----&apos; + data)</div><div class="line">&#125;</div><div class="line">let pEvent2 = function(data)&#123;</div><div class="line">    console.log(&apos;pEvent2----&apos; + data)</div><div class="line">&#125;</div><div class="line"></div><div class="line">p.on(&apos;todo1&apos;, pEvent1)</div><div class="line"></div><div class="line">p.emit(&apos;todo1&apos;, &apos;第一次&apos;)</div><div class="line">p.emit(&apos;todo1&apos;, &apos;第二次&apos;)</div><div class="line"></div><div class="line">p.once(&apos;todo2&apos;, pEvent1)</div><div class="line"></div><div class="line">p.emit(&apos;todo2&apos;, &apos;第一次&apos;)</div><div class="line">p.emit(&apos;todo2&apos;, &apos;第二次&apos;)</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//- 测试</span></div><div class="line"><span class="keyword">let</span> p = <span class="keyword">new</span> Observer();</div><div class="line"><span class="keyword">let</span> pEvent1 = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'pEvent1----'</span> + data)</div><div class="line">&#125;</div><div class="line"><span class="keyword">let</span> pEvent2 = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'pEvent2----'</span> + data)</div><div class="line">&#125;</div><div class="line"></div><div class="line">p.on(<span class="string">'todo1'</span>, pEvent1)</div><div class="line"></div><div class="line">p.emit(<span class="string">'todo1'</span>, <span class="string">'第一次'</span>)</div><div class="line">p.emit(<span class="string">'todo1'</span>, <span class="string">'第二次'</span>)</div><div class="line"></div><div class="line">p.once(<span class="string">'todo2'</span>, pEvent1)</div><div class="line"></div><div class="line">p.emit(<span class="string">'todo2'</span>, <span class="string">'第一次'</span>)</div><div class="line">p.emit(<span class="string">'todo2'</span>, <span class="string">'第二次'</span>)</div></pre></td></tr></table></figure>
 <p><img src="http://7xp0vg.com1.z0.glb.clouddn.com/20180330-2.png" alt=""></p>
 <p>ok，一个简单的观察者模式初步完成。</p>
 <h1 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h1><p>参考资料：<br><a href="https://juejin.im/post/5a9108b6f265da4e7527b1a4" target="_blank" rel="external">Javascript设计模式之发布-订阅模式</a></p>
@@ -435,15 +435,23 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Handlebars</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">人和事</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Handlebars</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">css3</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,15 +467,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">css3</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -475,11 +475,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">2016</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -487,15 +487,11 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Promise</a>
+                <a href="javascript:void(0)" class="js-tag color5">2016</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">装逼</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">setTimeout</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,7 +507,7 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">年终总结</a>
+                <a href="javascript:void(0)" class="js-tag color1">setTimeout</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -520,6 +516,10 @@ getOwnMetadataKeys:function(t){return o(i(t),arguments.length<2?void 0:u(argumen
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">发表情</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">年终总结</a>
               </li>
             
             <div class="clearfix"></div>
